@@ -1,0 +1,46 @@
+﻿services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - "./scripts/schema.sql:/docker-entrypoint-initdb.d/1.sql"
+    healthcheck:
+      test: [ 'CMD-SHELL', 'mysqladmin ping -h 127.0.0.1 --password="password" --silent' ]
+      interval: 3s
+      retries: 10
+      start_period: 10s
+  app:
+    image: app
+    build:
+      context: .
+      dockerfile: src/App/Dockerfile
+    depends_on: 
+      db:
+        condition: service_healthy
+    environment:
+      ConnectionStrings__DefaultConnection: "server=db;uid=user;pwd=password;database=db"
+    ports:
+      - '8080:8080'
+    expose:
+      - '8080'
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
