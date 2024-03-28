@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Linq.Expressions;
 using Domain.Context;
-using Domain.Entity;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Business.Repositories;

@@ -1,5 +1,5 @@
 using Domain.Context;
-using Domain.Entity;
+using Domain.Entities;
 
 namespace Business.Repositories;
 

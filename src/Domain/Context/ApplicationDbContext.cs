@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Domain.Entity;
+using Domain.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Context;
 
-public partial class ApplicationDbContext : DbContext
+public partial class ApplicationDbContext : IdentityDbContext<User, IdentityRole<int>, int>
 {
-    public ApplicationDbContext()
-    {
-    }
-
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
@@ -26,103 +24,33 @@ public partial class ApplicationDbContext : DbContext
 
     public virtual DbSet<Employee> Employees { get; set; }
 
-    public virtual DbSet<Order> Orders { get; set; }
-
-    public virtual DbSet<Package> Packages { get; set; }
-
-    public virtual DbSet<PackageSchedule> PackageSchedules { get; set; }
-
     public virtual DbSet<Photo> Photos { get; set; }
 
     public virtual DbSet<Room> Rooms { get; set; }
 
     public virtual DbSet<Tag> Tags { get; set; }
 
-    public virtual DbSet<User> Users { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySQL("server=127.0.0.1;uid=user;pwd=password;database=db");
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Address>(entity =>
+        base.OnModelCreating(modelBuilder);
+        
+         modelBuilder.Entity<Address>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.ToTable("addresses");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.City)
-                .HasMaxLength(128)
-                .HasColumnName("city");
-            entity.Property(e => e.Country)
-                .HasMaxLength(64)
-                .HasColumnName("country");
-            entity.Property(e => e.PostalCode)
-                .HasMaxLength(10)
-                .HasColumnName("postal_code");
-            entity.Property(e => e.Street)
-                .HasMaxLength(128)
-                .HasColumnName("street");
-            entity.Property(e => e.Street2)
-                .HasMaxLength(128)
-                .HasColumnName("street2");
-        });
-
-        modelBuilder.Entity<Admin>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.ToTable("admin");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.CanDelete).HasColumnName("can_delete");
-            entity.Property(e => e.CanEdit).HasColumnName("can_edit");
-
-            entity.HasOne(d => d.IdNavigation).WithOne(p => p.Admin)
-                .HasForeignKey<Admin>(d => d.Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("admin_ibfk_1");
         });
 
         modelBuilder.Entity<Branch>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("branches");
-
-            entity.HasIndex(e => e.Address, "address");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Address).HasColumnName("address");
-
-            entity.HasOne(d => d.AddressNavigation).WithMany(p => p.Branches)
-                .HasForeignKey(d => d.Address)
-                .HasConstraintName("branches_ibfk_1");
+            entity.HasOne(d => d.AddressNavigation).WithMany(p => p.Branches).HasConstraintName("branches_ibfk_1");
         });
 
         modelBuilder.Entity<Destination>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("destinations");
-
-            entity.HasIndex(e => e.Address, "address");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Address).HasColumnName("address");
-            entity.Property(e => e.Availible).HasColumnName("availible");
-            entity.Property(e => e.Description)
-                .HasColumnType("text")
-                .HasColumnName("description");
-            entity.Property(e => e.Name)
-                .HasMaxLength(128)
-                .HasColumnName("name");
-            entity.Property(e => e.Rating).HasColumnName("rating");
-
             entity.HasOne(d => d.AddressNavigation).WithMany(p => p.Destinations)
-                .HasForeignKey(d => d.Address)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("destinations_ibfk_1");
 
@@ -149,44 +77,18 @@ public partial class ApplicationDbContext : DbContext
 
         modelBuilder.Entity<Employee>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.ToTable("employees");
-
-            entity.HasIndex(e => e.Branch, "branch");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Branch).HasColumnName("branch");
-
-            entity.HasOne(d => d.BranchNavigation).WithMany(p => p.Employees)
-                .HasForeignKey(d => d.Branch)
-                .HasConstraintName("employees_ibfk_2");
-
-            entity.HasOne(d => d.IdNavigation).WithOne(p => p.Employee)
-                .HasForeignKey<Employee>(d => d.Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("employees_ibfk_1");
+            entity.HasOne(d => d.BranchNavigation).WithMany(p => p.Employees).HasConstraintName("employees_ibfk_2");
         });
 
         modelBuilder.Entity<Order>(entity =>
         {
             entity.HasKey(e => new { e.PackageSchedules, e.UserId }).HasName("PRIMARY");
 
-            entity.ToTable("orders");
-
-            entity.HasIndex(e => e.UserId, "userId");
-
-            entity.Property(e => e.PackageSchedules).HasColumnName("package_schedules");
-            entity.Property(e => e.UserId).HasColumnName("userId");
-            entity.Property(e => e.HasBeenPaid).HasColumnName("has_been_paid");
-
             entity.HasOne(d => d.PackageSchedulesNavigation).WithMany(p => p.Orders)
-                .HasForeignKey(d => d.PackageSchedules)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("orders_ibfk_1");
 
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
-                .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("orders_ibfk_2");
         });
@@ -195,62 +97,25 @@ public partial class ApplicationDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("packages");
-
-            entity.HasIndex(e => e.CreatedBy, "created_by");
-
-            entity.HasIndex(e => e.Room, "room");
-
-            entity.HasIndex(e => e.RootPackageId, "root_package_id");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Availible)
-                .IsRequired()
-                .HasDefaultValueSql("'1'")
-                .HasColumnName("availible");
-            entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
-                .HasColumnType("timestamp")
-                .HasColumnName("created_at");
-            entity.Property(e => e.CreatedBy).HasColumnName("created_by");
-            entity.Property(e => e.DeletedAt)
-                .HasColumnType("timestamp")
-                .HasColumnName("deleted_at");
-            entity.Property(e => e.Room).HasColumnName("room");
-            entity.Property(e => e.RootPackageId).HasColumnName("root_package_id");
+            entity.Property(e => e.Availible).HasDefaultValueSql("'1'");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
 
             entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.Packages)
-                .HasForeignKey(d => d.CreatedBy)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("packages_ibfk_2");
 
             entity.HasOne(d => d.RoomNavigation).WithMany(p => p.Packages)
-                .HasForeignKey(d => d.Room)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("packages_ibfk_1");
 
-            entity.HasOne(d => d.RootPackage).WithMany(p => p.InverseRootPackage)
-                .HasForeignKey(d => d.RootPackageId)
-                .HasConstraintName("packages_ibfk_3");
+            entity.HasOne(d => d.RootPackage).WithMany(p => p.InverseRootPackage).HasConstraintName("packages_ibfk_3");
         });
 
         modelBuilder.Entity<PackageSchedule>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("package_schedules");
-
-            entity.HasIndex(e => e.PackageId, "package_id");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.DateStart)
-                .HasColumnType("date")
-                .HasColumnName("date_start");
-            entity.Property(e => e.Days).HasColumnName("days");
-            entity.Property(e => e.PackageId).HasColumnName("package_id");
-
             entity.HasOne(d => d.Package).WithMany(p => p.PackageSchedules)
-                .HasForeignKey(d => d.PackageId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("package_schedules_ibfk_1");
         });
@@ -259,17 +124,9 @@ public partial class ApplicationDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("photos");
-
-            entity.Property(e => e.Id)
-                .ValueGeneratedOnAdd()
-                .HasColumnName("id");
-            entity.Property(e => e.Photo1)
-                .HasColumnType("blob")
-                .HasColumnName("photo");
+            entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
             entity.HasOne(d => d.IdNavigation).WithOne(p => p.Photo)
-                .HasForeignKey<Photo>(d => d.Id)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("photos_ibfk_1");
         });
@@ -278,29 +135,9 @@ public partial class ApplicationDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("rooms");
-
-            entity.HasIndex(e => e.Destination, "destination");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.AmountAvailible).HasColumnName("amount_availible");
-            entity.Property(e => e.Availible)
-                .IsRequired()
-                .HasDefaultValueSql("'1'")
-                .HasColumnName("availible");
-            entity.Property(e => e.Beds)
-                .HasColumnType("json")
-                .HasColumnName("beds");
-            entity.Property(e => e.CostPerNight)
-                .HasPrecision(15)
-                .HasColumnName("cost_per_night");
-            entity.Property(e => e.Description)
-                .HasColumnType("text")
-                .HasColumnName("description");
-            entity.Property(e => e.Destination).HasColumnName("destination");
+            entity.Property(e => e.Availible).HasDefaultValueSql("'1'");
 
             entity.HasOne(d => d.DestinationNavigation).WithMany(p => p.Rooms)
-                .HasForeignKey(d => d.Destination)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("rooms_ibfk_1");
 
@@ -328,16 +165,6 @@ public partial class ApplicationDbContext : DbContext
         modelBuilder.Entity<Tag>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.ToTable("tags");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Decription)
-                .HasColumnType("text")
-                .HasColumnName("decription");
-            entity.Property(e => e.Name)
-                .HasMaxLength(64)
-                .HasColumnName("name");
 
             entity.HasMany(d => d.Destinations).WithMany(p => p.Tags)
                 .UsingEntity<Dictionary<string, object>>(
@@ -402,39 +229,9 @@ public partial class ApplicationDbContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-            entity.ToTable("users");
-
-            entity.HasIndex(e => e.Addresses, "addresses");
-
-            entity.HasIndex(e => e.Email, "users_index_0");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Addresses).HasColumnName("addresses");
-            entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
-                .HasColumnType("timestamp")
-                .HasColumnName("created_at");
-            entity.Property(e => e.Email)
-                .HasMaxLength(256)
-                .HasColumnName("email");
-            entity.Property(e => e.Name)
-                .HasMaxLength(255)
-                .HasColumnName("name");
-            entity.Property(e => e.Password)
-                .HasMaxLength(64)
-                .HasColumnName("password");
-            entity.Property(e => e.PhoneNum)
-                .HasMaxLength(255)
-                .HasColumnName("phone_num");
-            entity.Property(e => e.Surname)
-                .HasMaxLength(255)
-                .HasColumnName("surname");
-
-            entity.HasOne(d => d.AddressesNavigation).WithMany(p => p.Users)
-                .HasForeignKey(d => d.Addresses)
-                .HasConstraintName("users_ibfk_1");
+            entity.HasOne(d => d.AddressesNavigation).WithMany(p => p.Users).HasConstraintName("users_ibfk_1");
         });
 
         OnModelCreatingPartial(modelBuilder);

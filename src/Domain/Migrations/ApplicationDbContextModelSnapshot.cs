@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Domain.Migrations.Structure
+namespace Domain.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -18,6 +18,32 @@ namespace Domain.Migrations.Structure
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("DestinationPhoto", b =>
+                {
+                    b.Property<int>("DestinationsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PhotosId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DestinationsId", "PhotosId");
+
+                    b.ToTable("DestinationPhoto");
+                });
+
+            modelBuilder.Entity("DestinationTag", b =>
+                {
+                    b.Property<int>("DestinationsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DestinationsId", "TagsId");
+
+                    b.ToTable("DestinationTag");
+                });
 
             modelBuilder.Entity("DestinationsPhoto", b =>
                 {
@@ -37,7 +63,7 @@ namespace Domain.Migrations.Structure
                     b.ToTable("destinations_photos", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entity.Address", b =>
+            modelBuilder.Entity("Domain.Entities.Address", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -75,30 +101,10 @@ namespace Domain.Migrations.Structure
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
-                    b.ToTable("addresses", (string)null);
+                    b.ToTable("addresses");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Admin", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
-                        .HasColumnName("id");
-
-                    b.Property<bool>("CanDelete")
-                        .HasColumnType("tinyint(1)")
-                        .HasColumnName("can_delete");
-
-                    b.Property<bool>("CanEdit")
-                        .HasColumnType("tinyint(1)")
-                        .HasColumnName("can_edit");
-
-                    b.HasKey("Id")
-                        .HasName("PRIMARY");
-
-                    b.ToTable("admin", (string)null);
-                });
-
-            modelBuilder.Entity("Domain.Entity.Branch", b =>
+            modelBuilder.Entity("Domain.Entities.Branch", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -114,10 +120,10 @@ namespace Domain.Migrations.Structure
 
                     b.HasIndex(new[] { "Address" }, "address");
 
-                    b.ToTable("branches", (string)null);
+                    b.ToTable("branches");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Destination", b =>
+            modelBuilder.Entity("Domain.Entities.Destination", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -152,28 +158,10 @@ namespace Domain.Migrations.Structure
                     b.HasIndex(new[] { "Address" }, "address")
                         .HasDatabaseName("address1");
 
-                    b.ToTable("destinations", (string)null);
+                    b.ToTable("destinations");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Employee", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
-                        .HasColumnName("id");
-
-                    b.Property<int?>("Branch")
-                        .HasColumnType("int")
-                        .HasColumnName("branch");
-
-                    b.HasKey("Id")
-                        .HasName("PRIMARY");
-
-                    b.HasIndex(new[] { "Branch" }, "branch");
-
-                    b.ToTable("employees", (string)null);
-                });
-
-            modelBuilder.Entity("Domain.Entity.Order", b =>
+            modelBuilder.Entity("Domain.Entities.Order", b =>
                 {
                     b.Property<int>("PackageSchedules")
                         .HasColumnType("int")
@@ -192,10 +180,10 @@ namespace Domain.Migrations.Structure
 
                     b.HasIndex(new[] { "UserId" }, "userId");
 
-                    b.ToTable("orders", (string)null);
+                    b.ToTable("orders");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Package", b =>
+            modelBuilder.Entity("Domain.Entities.Package", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -240,10 +228,10 @@ namespace Domain.Migrations.Structure
 
                     b.HasIndex(new[] { "RootPackageId" }, "root_package_id");
 
-                    b.ToTable("packages", (string)null);
+                    b.ToTable("packages");
                 });
 
-            modelBuilder.Entity("Domain.Entity.PackageSchedule", b =>
+            modelBuilder.Entity("Domain.Entities.PackageSchedule", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -267,10 +255,10 @@ namespace Domain.Migrations.Structure
 
                     b.HasIndex(new[] { "PackageId" }, "package_id");
 
-                    b.ToTable("package_schedules", (string)null);
+                    b.ToTable("package_schedules");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Photo", b =>
+            modelBuilder.Entity("Domain.Entities.Photo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -285,10 +273,10 @@ namespace Domain.Migrations.Structure
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
-                    b.ToTable("photos", (string)null);
+                    b.ToTable("photos");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Room", b =>
+            modelBuilder.Entity("Domain.Entities.Room", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -329,10 +317,10 @@ namespace Domain.Migrations.Structure
 
                     b.HasIndex(new[] { "Destination" }, "destination");
 
-                    b.ToTable("rooms", (string)null);
+                    b.ToTable("rooms");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Tag", b =>
+            modelBuilder.Entity("Domain.Entities.Tag", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -352,19 +340,25 @@ namespace Domain.Migrations.Structure
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
-                    b.ToTable("tags", (string)null);
+                    b.ToTable("tags");
                 });
 
-            modelBuilder.Entity("Domain.Entity.User", b =>
+            modelBuilder.Entity("Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id");
+                        .HasColumnType("int");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
 
                     b.Property<int?>("Addresses")
                         .HasColumnType("int")
                         .HasColumnName("addresses");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
@@ -373,10 +367,17 @@ namespace Domain.Migrations.Structure
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(256)")
-                        .HasColumnName("email");
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -384,16 +385,25 @@ namespace Domain.Migrations.Structure
                         .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(64)
-                        .HasColumnType("varchar(64)")
-                        .HasColumnName("password");
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
-                    b.Property<string>("PhoneNum")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
-                        .HasColumnName("phone_num");
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Surname")
                         .IsRequired()
@@ -401,14 +411,194 @@ namespace Domain.Migrations.Structure
                         .HasColumnType("varchar(255)")
                         .HasColumnName("surname");
 
-                    b.HasKey("Id")
-                        .HasName("PRIMARY");
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex");
 
                     b.HasIndex(new[] { "Addresses" }, "addresses");
 
                     b.HasIndex(new[] { "Email" }, "users_index_0");
 
-                    b.ToTable("users", (string)null);
+                    b.ToTable("AspNetUsers", (string)null);
+
+                    b.UseTptMappingStrategy();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("PackageTag", b =>
+                {
+                    b.Property<int>("PackagesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PackagesId", "TagsId");
+
+                    b.ToTable("PackageTag");
+                });
+
+            modelBuilder.Entity("PhotoRoom", b =>
+                {
+                    b.Property<int>("PhotosId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoomsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PhotosId", "RoomsId");
+
+                    b.ToTable("PhotoRoom");
+                });
+
+            modelBuilder.Entity("RoomTag", b =>
+                {
+                    b.Property<int>("RoomsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RoomsId", "TagsId");
+
+                    b.ToTable("RoomTag");
                 });
 
             modelBuilder.Entity("RoomsPhoto", b =>
@@ -484,35 +674,52 @@ namespace Domain.Migrations.Structure
                     b.ToTable("tags_rooms", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Entities.Employee", b =>
+                {
+                    b.HasBaseType("Domain.Entities.User");
+
+                    b.Property<int?>("Branch")
+                        .HasColumnType("int")
+                        .HasColumnName("branch");
+
+                    b.HasIndex(new[] { "Branch" }, "branch");
+
+                    b.ToTable("employees");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Admin", b =>
+                {
+                    b.HasBaseType("Domain.Entities.Employee");
+
+                    b.Property<bool>("CanDelete")
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("can_delete");
+
+                    b.Property<bool>("CanEdit")
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("can_edit");
+
+                    b.ToTable("admin");
+                });
+
             modelBuilder.Entity("DestinationsPhoto", b =>
                 {
-                    b.HasOne("Domain.Entity.Destination", null)
+                    b.HasOne("Domain.Entities.Destination", null)
                         .WithMany()
                         .HasForeignKey("DestinationsId")
                         .IsRequired()
                         .HasConstraintName("destinations_photos_ibfk_1");
 
-                    b.HasOne("Domain.Entity.Photo", null)
+                    b.HasOne("Domain.Entities.Photo", null)
                         .WithMany()
                         .HasForeignKey("PhotosId")
                         .IsRequired()
                         .HasConstraintName("destinations_photos_ibfk_2");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Admin", b =>
+            modelBuilder.Entity("Domain.Entities.Branch", b =>
                 {
-                    b.HasOne("Domain.Entity.Employee", "IdNavigation")
-                        .WithOne("Admin")
-                        .HasForeignKey("Domain.Entity.Admin", "Id")
-                        .IsRequired()
-                        .HasConstraintName("admin_ibfk_1");
-
-                    b.Navigation("IdNavigation");
-                });
-
-            modelBuilder.Entity("Domain.Entity.Branch", b =>
-                {
-                    b.HasOne("Domain.Entity.Address", "AddressNavigation")
+                    b.HasOne("Domain.Entities.Address", "AddressNavigation")
                         .WithMany("Branches")
                         .HasForeignKey("Address")
                         .HasConstraintName("branches_ibfk_1");
@@ -520,9 +727,9 @@ namespace Domain.Migrations.Structure
                     b.Navigation("AddressNavigation");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Destination", b =>
+            modelBuilder.Entity("Domain.Entities.Destination", b =>
                 {
-                    b.HasOne("Domain.Entity.Address", "AddressNavigation")
+                    b.HasOne("Domain.Entities.Address", "AddressNavigation")
                         .WithMany("Destinations")
                         .HasForeignKey("Address")
                         .IsRequired()
@@ -531,33 +738,15 @@ namespace Domain.Migrations.Structure
                     b.Navigation("AddressNavigation");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Employee", b =>
+            modelBuilder.Entity("Domain.Entities.Order", b =>
                 {
-                    b.HasOne("Domain.Entity.Branch", "BranchNavigation")
-                        .WithMany("Employees")
-                        .HasForeignKey("Branch")
-                        .HasConstraintName("employees_ibfk_2");
-
-                    b.HasOne("Domain.Entity.User", "IdNavigation")
-                        .WithOne("Employee")
-                        .HasForeignKey("Domain.Entity.Employee", "Id")
-                        .IsRequired()
-                        .HasConstraintName("employees_ibfk_1");
-
-                    b.Navigation("BranchNavigation");
-
-                    b.Navigation("IdNavigation");
-                });
-
-            modelBuilder.Entity("Domain.Entity.Order", b =>
-                {
-                    b.HasOne("Domain.Entity.Package", "PackageSchedulesNavigation")
+                    b.HasOne("Domain.Entities.Package", "PackageSchedulesNavigation")
                         .WithMany("Orders")
                         .HasForeignKey("PackageSchedules")
                         .IsRequired()
                         .HasConstraintName("orders_ibfk_1");
 
-                    b.HasOne("Domain.Entity.User", "User")
+                    b.HasOne("Domain.Entities.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .IsRequired()
@@ -568,21 +757,21 @@ namespace Domain.Migrations.Structure
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Package", b =>
+            modelBuilder.Entity("Domain.Entities.Package", b =>
                 {
-                    b.HasOne("Domain.Entity.Admin", "CreatedByNavigation")
+                    b.HasOne("Domain.Entities.Admin", "CreatedByNavigation")
                         .WithMany("Packages")
                         .HasForeignKey("CreatedBy")
                         .IsRequired()
                         .HasConstraintName("packages_ibfk_2");
 
-                    b.HasOne("Domain.Entity.Room", "RoomNavigation")
+                    b.HasOne("Domain.Entities.Room", "RoomNavigation")
                         .WithMany("Packages")
                         .HasForeignKey("Room")
                         .IsRequired()
                         .HasConstraintName("packages_ibfk_1");
 
-                    b.HasOne("Domain.Entity.Package", "RootPackage")
+                    b.HasOne("Domain.Entities.Package", "RootPackage")
                         .WithMany("InverseRootPackage")
                         .HasForeignKey("RootPackageId")
                         .HasConstraintName("packages_ibfk_3");
@@ -594,9 +783,9 @@ namespace Domain.Migrations.Structure
                     b.Navigation("RootPackage");
                 });
 
-            modelBuilder.Entity("Domain.Entity.PackageSchedule", b =>
+            modelBuilder.Entity("Domain.Entities.PackageSchedule", b =>
                 {
-                    b.HasOne("Domain.Entity.Package", "Package")
+                    b.HasOne("Domain.Entities.Package", "Package")
                         .WithMany("PackageSchedules")
                         .HasForeignKey("PackageId")
                         .IsRequired()
@@ -605,20 +794,20 @@ namespace Domain.Migrations.Structure
                     b.Navigation("Package");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Photo", b =>
+            modelBuilder.Entity("Domain.Entities.Photo", b =>
                 {
-                    b.HasOne("Domain.Entity.Destination", "IdNavigation")
+                    b.HasOne("Domain.Entities.Destination", "IdNavigation")
                         .WithOne("Photo")
-                        .HasForeignKey("Domain.Entity.Photo", "Id")
+                        .HasForeignKey("Domain.Entities.Photo", "Id")
                         .IsRequired()
                         .HasConstraintName("photos_ibfk_1");
 
                     b.Navigation("IdNavigation");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Room", b =>
+            modelBuilder.Entity("Domain.Entities.Room", b =>
                 {
-                    b.HasOne("Domain.Entity.Destination", "DestinationNavigation")
+                    b.HasOne("Domain.Entities.Destination", "DestinationNavigation")
                         .WithMany("Rooms")
                         .HasForeignKey("Destination")
                         .IsRequired()
@@ -627,9 +816,9 @@ namespace Domain.Migrations.Structure
                     b.Navigation("DestinationNavigation");
                 });
 
-            modelBuilder.Entity("Domain.Entity.User", b =>
+            modelBuilder.Entity("Domain.Entities.User", b =>
                 {
-                    b.HasOne("Domain.Entity.Address", "AddressesNavigation")
+                    b.HasOne("Domain.Entities.Address", "AddressesNavigation")
                         .WithMany("Users")
                         .HasForeignKey("Addresses")
                         .HasConstraintName("users_ibfk_1");
@@ -637,15 +826,66 @@ namespace Domain.Migrations.Structure
                     b.Navigation("AddressesNavigation");
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<int>", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+                {
+                    b.HasOne("Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.HasOne("Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<int>", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.HasOne("Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("RoomsPhoto", b =>
                 {
-                    b.HasOne("Domain.Entity.Photo", null)
+                    b.HasOne("Domain.Entities.Photo", null)
                         .WithMany()
                         .HasForeignKey("PhotosId")
                         .IsRequired()
                         .HasConstraintName("rooms_photos_ibfk_2");
 
-                    b.HasOne("Domain.Entity.Room", null)
+                    b.HasOne("Domain.Entities.Room", null)
                         .WithMany()
                         .HasForeignKey("RoomsId")
                         .IsRequired()
@@ -654,13 +894,13 @@ namespace Domain.Migrations.Structure
 
             modelBuilder.Entity("TagsDestination", b =>
                 {
-                    b.HasOne("Domain.Entity.Destination", null)
+                    b.HasOne("Domain.Entities.Destination", null)
                         .WithMany()
                         .HasForeignKey("DestinationsId")
                         .IsRequired()
                         .HasConstraintName("tags_destinations_ibfk_2");
 
-                    b.HasOne("Domain.Entity.Tag", null)
+                    b.HasOne("Domain.Entities.Tag", null)
                         .WithMany()
                         .HasForeignKey("TagsId")
                         .IsRequired()
@@ -669,13 +909,13 @@ namespace Domain.Migrations.Structure
 
             modelBuilder.Entity("TagsPackage", b =>
                 {
-                    b.HasOne("Domain.Entity.Package", null)
+                    b.HasOne("Domain.Entities.Package", null)
                         .WithMany()
                         .HasForeignKey("PackagesId")
                         .IsRequired()
                         .HasConstraintName("tags_packages_ibfk_2");
 
-                    b.HasOne("Domain.Entity.Tag", null)
+                    b.HasOne("Domain.Entities.Tag", null)
                         .WithMany()
                         .HasForeignKey("TagsId")
                         .IsRequired()
@@ -684,20 +924,45 @@ namespace Domain.Migrations.Structure
 
             modelBuilder.Entity("TagsRoom", b =>
                 {
-                    b.HasOne("Domain.Entity.Room", null)
+                    b.HasOne("Domain.Entities.Room", null)
                         .WithMany()
                         .HasForeignKey("RoomsId")
                         .IsRequired()
                         .HasConstraintName("tags_rooms_ibfk_2");
 
-                    b.HasOne("Domain.Entity.Tag", null)
+                    b.HasOne("Domain.Entities.Tag", null)
                         .WithMany()
                         .HasForeignKey("TagsId")
                         .IsRequired()
                         .HasConstraintName("tags_rooms_ibfk_1");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Address", b =>
+            modelBuilder.Entity("Domain.Entities.Employee", b =>
+                {
+                    b.HasOne("Domain.Entities.Branch", "BranchNavigation")
+                        .WithMany("Employees")
+                        .HasForeignKey("Branch")
+                        .HasConstraintName("employees_ibfk_2");
+
+                    b.HasOne("Domain.Entities.User", null)
+                        .WithOne()
+                        .HasForeignKey("Domain.Entities.Employee", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BranchNavigation");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Admin", b =>
+                {
+                    b.HasOne("Domain.Entities.Employee", null)
+                        .WithOne()
+                        .HasForeignKey("Domain.Entities.Admin", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entities.Address", b =>
                 {
                     b.Navigation("Branches");
 
@@ -706,29 +971,19 @@ namespace Domain.Migrations.Structure
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Admin", b =>
-                {
-                    b.Navigation("Packages");
-                });
-
-            modelBuilder.Entity("Domain.Entity.Branch", b =>
+            modelBuilder.Entity("Domain.Entities.Branch", b =>
                 {
                     b.Navigation("Employees");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Destination", b =>
+            modelBuilder.Entity("Domain.Entities.Destination", b =>
                 {
                     b.Navigation("Photo");
 
                     b.Navigation("Rooms");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Employee", b =>
-                {
-                    b.Navigation("Admin");
-                });
-
-            modelBuilder.Entity("Domain.Entity.Package", b =>
+            modelBuilder.Entity("Domain.Entities.Package", b =>
                 {
                     b.Navigation("InverseRootPackage");
 
@@ -737,16 +992,19 @@ namespace Domain.Migrations.Structure
                     b.Navigation("PackageSchedules");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Room", b =>
+            modelBuilder.Entity("Domain.Entities.Room", b =>
                 {
                     b.Navigation("Packages");
                 });
 
-            modelBuilder.Entity("Domain.Entity.User", b =>
+            modelBuilder.Entity("Domain.Entities.User", b =>
                 {
-                    b.Navigation("Employee");
-
                     b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Admin", b =>
+                {
+                    b.Navigation("Packages");
                 });
 #pragma warning restore 612, 618
         }
