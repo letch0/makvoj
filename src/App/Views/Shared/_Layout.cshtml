@@ -1,9 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Domain.Entities
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - App</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/resources/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/App.styles.css" asp-append-version="true"/>
@@ -11,14 +16,23 @@
 </head>
 <body>
 <div id="top_line">
-<!--? finish button link to either another page or pop up-->
-        <a id="sign_up_button" href="">SIGN UP</a>
+    <!--? finish button link to either another page or pop up-->
+        @if(SignInManager.IsSignedIn(User))
+        {
+            <h3>@UserManager.GetUserName(User)</h3>
+            <a id="logout_button" asp-controller="Account" asp-action="Logout" asp-route-returnurl="@ViewData["ReturnUrl"]">LOGOUT</a>
+        }
+        else
+        {
+            <a id="login_button" asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]">LOGIN</a>
+            <a id="sign_up_button" asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">SIGN UP</a>
+        }
     </div>
     <header>
         <a href="index.html">
-            <img id="logo" src="resources/images/logo_cestovka_purp.png" alt="logo_image" height="60" width="60">
+            <img id="logo" src="~/resources/images/logo_cestovka_purp.png" alt="logo_image" height="60" width="60">
         </a>
-        <a id="company_name" href="index.html">
+        <a id="company_name" asp-controller="Home" asp-action="Index">
             Name of the agency
         </a>
     </header>
