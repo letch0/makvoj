@@ -16,8 +16,8 @@ public class RegisterVM
     [MinLength(8)]
     public string? Password { get; set; }
 
-    [Compare("Password", ErrorMessage = "Passwords don't match.")]
-    [Display(Name = "Confirm Password")]
+    [Compare("Heslo", ErrorMessage = "Hesla se neshodují.")]
+    [Display(Name = "Potvrďte heslo")]
     [DataType(DataType.Password)]
     [MinLength(8)]
     public string? ConfirmPassword { get; set; }

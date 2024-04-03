@@ -13,7 +13,7 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background-color: var(--color4);
   color: var(--textcolor1);
-  margin: 0%;
+  margin: 0;
 }
 
 header {
@@ -42,6 +42,31 @@ a {
 /*id*/
 #company_name {
   font-size: 300%;
+}
+#company_name :hover{
+  color: var(--color2);
+}
+
+#login_button {
+  text-align: right;
+  margin-left: 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+#login_button :hover{
+  color: var(--color2);
+}
+
+#logout_button{
+  text-align: right;
+  margin-right: 5%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  margin-left: 1%;
+  padding: 1%;
+}
+#logout_button :hover{
+  color: var(--color2);
 }
 
 #menu {
@@ -142,17 +167,34 @@ a {
   background: var(--color3);
   color: var(--color2);
 }
-
-#sign_up_button {
-  margin: 5%;
+#sign_up_button{
+  text-align: right;+
+  margin-right: 5%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  margin-left: 1%;
+  padding: 1%;
+}
+#sign_up_button:hover{
+  color: var(--color2);
 }
 
 #top_line {
+  text-align: right;
   margin-top: 1%;
   margin-bottom: 1%;
 }
 
 /*class*/
+.body_layout{
+  margin-top: 100px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  padding: 5%;
+  align-self: stretch;
+}
+
 .flexbox {
   display: flex;
   justify-content: flex-start;
@@ -161,8 +203,71 @@ a {
   flex-direction: column;
   flex-wrap: nowrap;
   height: 100%;
-  padding: 0%;
+  padding: 0;
   gap: 5%;
+}
+
+.form{
+  border-width: thick;
+  border-style: double;
+  border-color: var(--color1);
+  border-radius: 20px;
+  background-color: var(--color3);
+  padding: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 25%;
+  margin-right: 25%;
+  align-self: auto;
+}
+.form_div{
+  margin: 1%;
+  padding: 2%;
+}
+.form_flex{
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+}
+.form_input {
+  background-color: var(--color4);
+  border-style: double;
+  border-radius: 7px;
+  border-color: var(--color2);
+  height: 50px;
+  width: 
+}
+
+.form_label{
+  padding-top: 2%;
+  padding-bottom: 1%;
+  font-size: xx-large;
+  margin: 2%;
+}
+.form_link{
+  padding: 1%;
+}
+.form_link:hover{
+   color: var(--color1);
+}
+.form_name{
+  text-align: center;
+  font-size: xxx-large;
+  padding: 5%;
+  margin: 1%;
+}
+.form_space{
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-color: var(--color4);
+  border-radius: 5%;
+}
+.form_submit{
+  align-self: center;
+  padding: 1%;
+  margin: 5%;  
 }
 
 .main_searcher {
