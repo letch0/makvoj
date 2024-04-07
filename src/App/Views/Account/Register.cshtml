@@ -4,7 +4,44 @@
 @{
     ViewData["Title"] = "Register";
 }
-
+<div class="body_layout">
+<div class="logform_body">
+    <div class="container">
+        <div class="form-container sign-up-container">
+            <form action="#" asp-action="Register" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+                <h1>Registrace</h1>
+                <input type="text" placeholder="Jméno" asp-for="Name"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <input type="text" placeholder="Přijmení" asp-for="Surname"/>
+                <span asp-validation-for="Surname" class="text-danger"></span>
+                <input type="email" placeholder="Email" asp-for="Email"/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <input type="password" placeholder="Heslo" asp-for="Password"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+                <input type="password" placeholder="Potvrďte Heslo" asp-for="ConfirmPassword"/>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                <button class="logform_action_button" type="submit">REGISTROVAT</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>UŽ MÁŠ ÚČET?</h1>
+                    <p>
+                        Pokud už máš účet, klikni na tlačítko a přihlaš se!
+                    </p>
+                    <button class="logform_site_button">
+                        <a asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]">
+                            <b>PŘIHLÁSIT</b>
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+</div>
+<!--
 <div class="row d-flex align-items-center justify-content-center">
     <div class="col-md-4 card p-3">
         <h2 class="text-center text-info">Register</h2>
@@ -46,7 +83,7 @@
         </form>
     </div>
 </div>
-
+-->
 
 @section Scripts{
     @{

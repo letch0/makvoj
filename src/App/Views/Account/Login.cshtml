@@ -5,9 +5,41 @@
     ViewData["Title"] = "Login";
 }
 
+    <div class="body_layout">
+        <div class="logform_body">
+            <div class="container">
+                <div class="form-container sign-in-container">
+                    <form asp-action="Login" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+                        <h1>PŘIHLÁSIT</h1>
+                        <input type="text" placeholder="Username" asp-for="Username"/>
+                        <span asp-validation-for="Username"></span>
+                        <input type="password" placeholder="Heslo" asp-for="Password"/>
+                        <span asp-validation-for="Password"></span>
+                        <input class="form_checkbox" asp-for="RememberMe"  /> @Html.DisplayNameFor(a=>a.RememberMe)
+                        <a class="logform_body_a" href="#">Zapomněl jsi heslo?</a>
+                        <button class="logform_action_button" type="submit"><b>PŘIHLÁSIT</b></button>
+                    </form>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                    <div class="overlay-panel overlay-right">
+                        <h1>JSI TU PRVNĚ?</h1>
+                        <p>Pokud ještě nemáš účet, klikni na tlačítko dole a registruj se!</p>
+                        <button class="logform_site_button" >
+                            <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">
+                                <b>REGISTROVAT</b>
+                            </a>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--
 <div class="form_flex">
     <div class="form">
-        <h2 class="form_name">REGISTRACE</h2>
+        <h2 class="form_name">Přihlášení</h2>
         <form class="form_space" asp-action="Login" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
             <div class="text-danger" asp-validation-summary="ModelOnly" ></div>
             <div class="form_div">
@@ -36,73 +68,7 @@
         </form>
     </div>
 </div>
-
-    <div class="container" id="container">
-      <div class="form-container sign-up-container">
-        <form action="#">
-          <h1>Registrace</h1>
-<!--
-          <div class="social-container">
-            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-          <span>or use your email for registration</span>
 -->
-          <input type="text" placeholder="Jméno" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Heslo" />
-          <button>REGISTROVAT</button>
-        </form>
-      </div>
-      <div class="form-container sign-in-container">
-        <form action="#">
-          <h1>PŘIHLÁSIT</h1>
-<!--
-          <div class="social-container">
-            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-          <span>or use your account</span>
--->
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Heslo" />
-          <a href="#">Zapomněl jsi heslo?</a>
-          <button>PŘIHLÁSIT</button>
-        </form>
-      </div>
-      <div class="overlay-container">
-        <div class="overlay">
-          <div class="overlay-panel overlay-left">
-            <h1>UŽ MÁŠ ÚČET?</h1>
-            <p>
-              Pokud už máš účet, klikni na tlačítko a přihlaš se!
-            </p>
-            <button class="ghost" id="signIn">PŘIHLÁSIT</button>
-          </div>
-          <div class="overlay-panel overlay-right">
-            <h1>JSI TU PRVNĚ?</h1>
-            <p>Pokud ještě nemáš účet, klikni na tlačítko dole a registruj se!</p>
-            <button class="ghost" id="signUp">REGISTROVAT</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      const signUpButton = document.getElementById("signUp");
-      const signInButton = document.getElementById("signIn");
-      const container = document.getElementById("container");
-
-      signUpButton.addEventListener("click", () => {
-        container.classList.add("right-panel-active");
-      });
-
-      signInButton.addEventListener("click", () => {
-        container.classList.remove("right-panel-active");
-      });
-    </script>
-
 @section Scripts{
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
