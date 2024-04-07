@@ -8,7 +8,7 @@
 <div class="logform_body">
     <div class="container">
         <div class="form-container sign-up-container">
-            <form action="#" asp-action="Register" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+            <form asp-action="Register" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
                 <h1>Registrace</h1>
                 <input type="text" placeholder="Jméno" asp-for="Name"/>
                 <span asp-validation-for="Name" class="text-danger"></span>
