@@ -37,19 +37,18 @@
         </a>
     </header>
     <nav id='menu'>
-        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
         <ul>
             <!--odkaz to Index.cshtml-->
             <li><a asp-controller="Home" asp-action="Index">Home</a></li>
             <li><a asp-controller="Home" asp-action="CloseUp">Destinations</a></li>
-            <li><a class='dropdown-arrow' href='error.html'>Další služby</a>
+            <li><a class='dropdown-arrow' asp-controller="Home" asp-action="Error">Další služby</a>
                 <ul class='sub-menus'>
-                    <li><a href='error.html'>Services 1</a></li>
-                    <li><a href='error.html'>Services 2</a></li>
-                    <li><a href='error.html'>Services 3</a></li>
+                    <li><a asp-controller="Home" asp-action="Error">Services 1</a></li>
+                    <li><a asp-controller="Home" asp-action="Error">Services 2</a></li>
+                    <li><a asp-controller="Home" asp-action="Error">Services 3</a></li>
                 </ul>
             </li>
-            <li><a href='contact.html'>Kontakt</a></li>
+            <li><a asp-controller="Home" asp-action="Error">Kontakt</a></li>
         </ul>
     </nav>
 
