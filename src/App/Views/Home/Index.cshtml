@@ -1,8 +1,120 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+<main class="flexbox">
+    <nav class="main_searcher">
+        <h1>KAM CHCETE VYRAZIT?</h1>
+        <div class="main_searcher_flex">
+            <form>
+                <div class="main_searcher_group main_searcher_input_box">
+                    <label>Kam jedete:</label>
+                    <input class="main_searcher_input" type="text" size="50" placeholder="Region, město nebo hotel" required="required"/>
+                    <img class="magnifier_icon" src="~/../wwwroot/resources/images/magnifier_logo_color2.png">
+                </div>
+                <div class="main_searcher_group">
+                    <div class="main_searcher_group main_searcher_input_box">
+                        <label>Příjezd:</label>
+                        <input class="main_searcher_input" type="text" size="25" placeholder="mm/dd/rrrr">
+                    </div>
+                    <div class="main_searcher_group main_searcher_input_box">
+                        <label>Odjezd:</label>
+                        <input class="main_searcher_input" type="text" size="25" placeholder="mm/dd/rrrr">
+                    </div>
+                </div>
+                <div class="main_searcher_group">
+                    <div class="main_searcher_group main_searcher_input_box ">
+                        <label>Počet osob:</label>
+                        <input class="main_searcher_input" type="text" size="30" value="Dospělí 1, Děti 0, Pokoje 1" disabled="disabled">
+                        <img class="arrow_icon" src="~/../wwwroot/resources/images/arrow_down_color2.png" width="30">
+                        <nav class="main_searcher_subgroup">
+                            <ul>
+                                <li>
+                                    <span class="main_searcher_subgroup_room" >Pokoj 1</span>
+                                    <ul>
+                                        <li>
+                                            <span class="main_searcher_subgroup_item">Dospělí</span>
+                                            <div class="main_searcher_subgroup_itembox">
+                                                <span>-</span>
+                                                <input type="number" min="0" value="1"/>
+                                                <span>+</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="main_searcher_subgroup_item">Děti</span>
+                                            <div class="main_searcher_subgroup_itembox">
+                                                <span>-</span>
+                                                <input type="number" min="0" value="0"/>
+                                                <span>+</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>    
+                            </ul>
+                            <div style="padding-top: 22px; border-top: 1px solid red;">
+                                <a style="transition: all 0.4s ease; text-decoration: underline;">Přidat pokoj</a>
+                                <a style="transition: all 0.4s ease; text-decoration: underline;">Odebrat pokoj</a>
+                            </div>
+                        </nav>
+                    </div>
+                    <button type="submit">HLEDAT</button>
+                </div>
+            </form>
+    
+        </div>
+                
+    </nav>
+           <div class="wave_divider2">
+                <svg class="wave_svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path class="wave_fill2" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
+                    <path class="wave_fill2" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
+                    <path class="wave_fill2" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+                </svg>
+            </div>
+            <div class="body_layout">
+                <div class="slideshow_gallery_container">
+                    <ul class="results">
+                        <li class="result">
+                          <a href="#"><img src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3MQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+                        </li>
+                        <li class="result">
+                          <a href="#"><img src="https://images.unsplash.com/photo-1551978429-3dbfed5cacc9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3NA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+                        </li>
+                        <li class="result">
+                          <a href="#"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3Nw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+                        </li>
+                        <li class="result">
+                          <a href="#"><img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE3OA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+                        </li>
+                        <li class="result">
+                          <a href="#"><img src="https://images.unsplash.com/photo-1494625927555-6ec4433b1571?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4MA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+                        </li>
+                        <li class="result">
+                          <a href="#"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4Mw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+                        </li>
+                        <li class="result">
+                          <a href="#"><img src="https://images.unsplash.com/photo-1600240644455-3edc55c375fe?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4NQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+                        </li>
+                        <li class="result">
+                          <a href="#"><img src="https://images.unsplash.com/photo-1435732960391-11053ee5e6b6?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE4OQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+                        </li>
+                        <li class="result">
+                          <a href="#"><img src="https://images.unsplash.com/photo-1518717202715-9fa9d099f58a?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5MQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+                        </li>
+                        <li class="result">
+                          <a href="#"><img src="https://images.unsplash.com/photo-1484318571209-661cf29a69c3?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5NA&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+                        </li>
+                        <li class="result">
+                          <a href="#"><img src="https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5Ng&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+                        </li>
+                        <li class="result">
+                          <a href="#"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=500&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8bGFuZHNjYXBlfHx8fHx8MTY2MjEyMDE5OQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=500" width="500" height="500" alt=""></a>
+                        </li>
+                      </ul>
+                </div>
+                <h2>gg</h2>
+            </div>
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+</main>
