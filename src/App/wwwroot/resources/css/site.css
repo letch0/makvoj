@@ -183,7 +183,7 @@ header > a{
   align-items: stretch;
   flex-direction: column;
   height: 100%;
-  padding: 0%;
+  padding: 0;
   gap: 5%;
 }
 
@@ -489,7 +489,7 @@ header > a{
   border-style: solid;
   margin: 20px;
   padding: 10px;
-  background-color: var(--color3);
+  background-color: linear-gradient(to bottom, var(--color1), var(--color4));
 }
 .item_column1,.item_column2,.item_column3{
   padding: 10px;
