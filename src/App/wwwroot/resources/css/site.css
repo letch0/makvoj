@@ -369,34 +369,6 @@ header > a{
   width: 50%;
   z-index: 2;
 }
-.logform_body .container.right-panel-active .sign-in-container {
-  transform: translateX(100%);
-}
-.logform_body .sign-up-container {
-  left: 0;
-  width: 50%;
-  opacity: 0;
-  z-index: 1;
-}
-.logform_body .container.right-panel-active .sign-up-container {
-  transform: translateX(100%);
-  opacity: 1;
-  z-index: 5;
-  animation: show 0.6s;
-}
-@keyframes show {
-  0%,
-  49.99% {
-    opacity: 0;
-    z-index: 1;
-  }
-
-  50%,
-  100% {
-    opacity: 1;
-    z-index: 5;
-  }
-}
 .logform_body .overlay-container {
   position: absolute;
   top: 0;
@@ -407,12 +379,9 @@ header > a{
   transition: transform 0.6s ease-in-out;
   z-index: 100;
 }
-.logform_body .container.right-panel-active .overlay-container {
-  transform: translateX(-100%);
-}
 .logform_body .overlay {
   background: var(--color4);
-  background: linear-gradient(to right, #240a34, #891652);
+  background: linear-gradient(to right, #891652, #240a34);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -421,11 +390,6 @@ header > a{
   left: -100%;
   height: 100%;
   width: 200%;
-  transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
-}
-.logform_body .container.right-panel-active .overlay {
-  transform: translateX(50%);
 }
 .logform_body .overlay-panel {
   position: absolute;
@@ -438,21 +402,9 @@ header > a{
   top: 0;
   height: 100%;
   width: 50%;
-  transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
-}
-.logform_body .overlay-left {
-  transform: translateX(-20%);
-}
-.logform_body .container.right-panel-active .overlay-left {
-  transform: translateX(0);
 }
 .logform_body .overlay-right {
   right: 0;
-  transform: translateX(0);
-}
-.logform_body .container.right-panel-active .overlay-right {
-  transform: translateX(20%);
 }
 
 /*searchbar*/

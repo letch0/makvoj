@@ -7,7 +7,7 @@
 <div class="body_layout">
 <div class="logform_body">
     <div class="container">
-        <div class="form-container sign-up-container">
+        <div class="form-container sign-in-container">
             <form asp-action="Register" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
                 <h1>Registrace</h1>
                 <input type="text" placeholder="Jméno" asp-for="Name"/>
@@ -25,7 +25,7 @@
         </div>
         <div class="overlay-container">
             <div class="overlay">
-                <div class="overlay-panel overlay-left">
+                <div class="overlay-panel overlay-right">
                     <h1>UŽ MÁŠ ÚČET?</h1>
                     <p>
                         Pokud už máš účet, klikni na tlačítko a přihlaš se!
