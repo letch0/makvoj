@@ -503,10 +503,41 @@ header > a{
   border:solid var(--color4)
 }
 .item_column2{
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: column;
   max-width: 50%;
 }
+.item_column2_nadpis{
+  border-bottom: dotted var(--color4);
+}
+.item_column2_text{
+  background-color: var(--color4);
+  padding: 20px;
+  border-radius: 5px;
+}
+.item_column2_flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.item_column2 a{
+  background-color: var(--color2);
+  color: var(--textcolor2);
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 10px;
+  align-self: flex-end;
+}
+.item_column2 a:hover{
+  background-color: var(--color1);
+}
+
 .item_column3{
-  border-left: solid var(--color2);
+  border-left: solid var(--color1);
   max-width: 25%;
 }
 
