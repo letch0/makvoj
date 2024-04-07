@@ -18,7 +18,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Results()
+    public IActionResult CloseUp()
     {
         return View();
     }

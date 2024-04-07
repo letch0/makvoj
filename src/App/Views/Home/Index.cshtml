@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<main>
+<main xmlns="http://www.w3.org/1999/html">
     <nav class="main_searcher">
         <div class="wave_divider">
             <svg class="wave_svg" data-name="Layer 1" viewBox="0 0 1200 120"
@@ -23,7 +23,7 @@
                 <div class="main_searcher_group main_searcher_input_box">
                     <label>Kam jedete:</label>
                     <input class="main_searcher_input" type="text" size="50" placeholder="Region, město nebo hotel" required="required"/>
-                    <img class="magnifier_icon" src="~/../wwwroot/resources/images/magnifier_logo_color2.png">
+                    <img class="magnifier_icon" src="~/resources/images/magnifier_logo_color2.png">
                 </div>
                 <div class="main_searcher_group">
                     <div class="main_searcher_group main_searcher_input_box">
@@ -39,7 +39,7 @@
                     <div class="main_searcher_group main_searcher_input_box ">
                         <label>Počet osob:</label>
                         <input class="main_searcher_input" type="text" size="30" value="Dospělí 1, Děti 0, Pokoje 1" disabled="disabled">
-                        <img class="arrow_icon" src="~/../wwwroot/resources/images/arrow_down_color2.png" width="30">
+                        <img class="arrow_icon" src="~/resources/images/arrow_down_color2.png" width="30">
                         <nav class="main_searcher_subgroup">
                             <ul>
                                 <li>
@@ -85,16 +85,71 @@
                 </svg>
             </div>
 
-    <div class="item-product">
-        <img class="picture-product" src="~/resources/images/placeholder.jpg" alt="image">
-        <div class="info-product">
+<div class="body_layout">
+            <h2 class="section_h2">NADPIS</h2>
+            <div class="item_container">
+                <section class="item_product">
+                    <div class="item_column1">
+                        <img class="picture-product" src="~/resources/images/placeholder.jpg" alt="image">
+                    </div>
+                    <div class="item_column2">
 
-            <h1>Nazev Zajezdu</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam arcu diam, dapibus at convallis vel, fringilla eget est. Pellentesque id tristique mi, at ultricies sapien. Vivamus in ultrices ipsum, eget sagittis dui. Pellentesque vitae justo vitae neque molestie aliquam. Donec in porta purus, a vulputate neque. Nunc tristique vulputate arcu in maximus. Suspendisse pellentesque justo in mollis luctus.</p>
-            <p>Rating 5/5</p>
-            <input type="button" value="Podrobnosti"></input>
+                        <h1>Nazev Zajezdu</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam arcu diam, dapibus at convallis
+                            vel, fringilla eget est. Pellentesque id tristique mi, at ultricies sapien. Vivamus in
+                            ultrices ipsum, eget sagittis dui. Pellentesque vitae justo vitae neque molestie aliquam.
+                            Donec in porta purus, a vulputate neque. Nunc tristique vulputate arcu in maximus.
+                            Suspendisse pellentesque justo in mollis luctus.</p>
+                        <p>Rating 5/5</p>
+                        <button class="logform_site_button" >
+                            <a asp-action="CloseUp" asp-controller="Home">
+                                <b>PODROBNOSTI</b>
+                            </a>
+                        </button>
+                    </div>
+                    <div class="item_column3">
+                        <p>sloupeček 3</p>
+                    </div>
+                </section>
+                <section class="item_product">
+                    <div class="item_column1">
+                        <img class="picture-product" src="~/resources/images/placeholder.jpg" alt="image">
+                    </div>
+                    <div class="item_column2">
+                        <h1>Nazev Zajezdu</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam arcu diam, dapibus at convallis
+                            vel, fringilla eget est. Pellentesque id tristique mi, at ultricies sapien. Vivamus in
+                            ultrices ipsum, eget sagittis dui. Pellentesque vitae justo vitae neque molestie aliquam.
+                            Donec in porta purus, a vulputate neque. Nunc tristique vulputate arcu in maximus.
+                            Suspendisse pellentesque justo in mollis luctus.</p>
+                        <p>Rating 5/5</p>
+                        <input type="button" value="Podrobnosti">
+                    </div>
+                    <div class="item_column3">
+                        <p>sloupeček 3</p>
+                    </div>
+                </section>
+                <section class="item_product">
+                    <div class="item_column1">
+                        <img class="picture-product" src="~/resources/images/placeholder.jpg" alt="image">
+                    </div>
+                    <div class="item_column2">
+
+                        <h1>Nazev Zajezdu</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam arcu diam, dapibus at convallis
+                            vel, fringilla eget est. Pellentesque id tristique mi, at ultricies sapien. Vivamus in
+                            ultrices ipsum, eget sagittis dui. Pellentesque vitae justo vitae neque molestie aliquam.
+                            Donec in porta purus, a vulputate neque. Nunc tristique vulputate arcu in maximus.
+                            Suspendisse pellentesque justo in mollis luctus.</p>
+                        <p>Rating 5/5</p>
+                        <input type="button" value="Podrobnosti">
+                    </div>
+                    <div class="item_column3">
+                        <p>sloupeček 3</p>
+                    </div>
+                </section>
+            </div>
         </div>
-    </div>
     <!--
     <div class="text-center">
         <h1 class="display-4">Welcome</h1>
