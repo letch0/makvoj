@@ -15,19 +15,19 @@
     <link rel="icon" href="~/resources/images/logo_cestovka_yell.png" type="image/x-icon"/>
 </head>
 <body>
-    <div id="top_line">
+<div id="top_line">
     <!--? finish button link to either another page or pop up-->
-        @if(SignInManager.IsSignedIn(User))
-        {
-            <h3>@UserManager.GetUserName(User)</h3>
-            <a id="logout_button" asp-controller="Account" asp-action="Logout" asp-route-returnurl="@ViewData["ReturnUrl"]">LOGOUT</a>
-        }
-        else
-        {
-            <a id="login_button" asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]">LOGIN</a>
-            <a id="sign_up_button" asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">SIGN UP</a>
-        }
-    </div>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h3>@UserManager.GetUserName(User)</h3>
+        <a id="logout_button" asp-controller="Account" asp-action="Logout" asp-route-returnurl="@ViewData["ReturnUrl"]">LOGOUT</a>
+    }
+    else
+    {
+        <a id="login_button" asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]">LOGIN</a>
+        <a id="sign_up_button" asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">SIGN UP</a>
+    }
+</div>
     <header>
         <a asp-controller="Home" asp-action="Index">
             <img id="logo" src="~/resources/images/logo_cestovka_purp.png" alt="logo_image" height="60" width="60">
@@ -38,17 +38,17 @@
     </header>
     <nav id='menu'>
         <ul>
-            <!--odkaz to Index.cshtml-->
             <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-            <li><a asp-controller="Home" asp-action="CloseUp">Destinations</a></li>
-            <li><a class='dropdown-arrow' asp-controller="Home" asp-action="Error">Další služby</a>
+            <li><a asp-controller="Home" asp-action="Destinations">Destinatinace</a></li>
+            <li><a asp-controller="Home" asp-action="Tours">Zájezdy</a></li>
+            <li><a>Další služby</a>
                 <ul class='sub-menus'>
-                    <li><a asp-controller="Home" asp-action="Error">Services 1</a></li>
-                    <li><a asp-controller="Home" asp-action="Error">Services 2</a></li>
-                    <li><a asp-controller="Home" asp-action="Error">Services 3</a></li>
+                    <li><a asp-controller="Home" asp-action="AboutUs">O nás</a></li>
+                    <li><a asp-controller="Home" asp-action="DestinationHotels">Hotely</a></li>
+                    <li><a asp-controller="Home" asp-action="Profile">Profile for now</a></li>
                 </ul>
             </li>
-            <li><a asp-controller="Home" asp-action="Error">Kontakt</a></li>
+            <li><a asp-controller="Home" asp-action="Contact">Kontakt</a></li>
         </ul>
     </nav>
 

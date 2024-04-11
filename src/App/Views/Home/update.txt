@@ -1,0 +1,51 @@
+1) name of CloseUp changed to DetailTours
+2)new structure:
+
+                                HOME (Index.cshtml)
+                                        |
+   ___________________________________________________________________
+    |                   |                   |                       |
+  TOURS               ABOUT              DESTINATIONS            CONTACT
+(Tours.cshtml)  (AboutUs.cshtml)    (Destinations.cshtml)   (Contact.cshtml)
+    |                                       |
+  DETAIL                               DESTINATION HOTELS
+(DetailTours.cshtml)                (DestinationHotels.cshtml)
+                                            |
+                                          DETAIL
+                                     (DetailHotel.cshtml)
+
+    LOGIN      -    REGISTER
+(Login.cshtml)  (Register.cshtml)
+        \               /
+            PROFILE
+          (Profile.cshtml)
+
+OTHER USED OR POSSIBLE PAGES:
+-ERROR PAGE (Error.cshtml)
+-Gallery, Activities, Blog, FAQ, Tour guide, Transport, Visa, ...
+
+3) WHAT ARE PAGES FOR?
+Destinations
+-shows countries in which we have hotels 
+
+DestinationHotels
+-shows hotels for one destination
+-i think this site will be have to made as template with default value as hotels from destinationA
+-will it be possible to to? that we will pull the data from db based on some id to the corresponding destinations
+
+DetailHotel
+-show description of the hotel, rooms, price etc
+
+Tours
+-shows list of available tours at the moment
+
+DetailTour
+-show description of the tour
+
+!!!!DetailTour and DetailHotel has different Layout, that's why there's two of them!!!!
+
+4)css changed accordingly
+5) i was unsure how to create another controller so everything is in Home directory
+
+
+
