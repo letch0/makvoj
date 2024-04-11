@@ -18,7 +18,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult CloseUp()
+    public IActionResult DetailTours()
     {
         return View();
     }
@@ -26,6 +26,32 @@ public class HomeController : Controller
     {
         return View();
     }
+    //maki added start
+    public IActionResult Contact()
+    {
+        return View();
+    }
+    public IActionResult Destinations()
+    {
+        return View();
+    }
+    public IActionResult DestinationHotels()
+    {
+        return View();
+    }
+    public IActionResult Profile()
+    {
+        return View();
+    }
+    public IActionResult Tours()
+    {
+        return View();
+    }
+    public IActionResult AboutUs()
+    {
+        return View();
+    }
+    //maki added end
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

@@ -29,6 +29,7 @@
 
     <ItemGroup>
       <Content Remove="Views\Home\contact.cshtml" />
+      <Content Include="Views\Home\Contact.cshtml" />
     </ItemGroup>
 
 </Project>
