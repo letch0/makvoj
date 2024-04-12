@@ -20,7 +20,35 @@
                 </path>
             </svg>
         </div>
-        <p>Navigace</p>
+        <div class="tours_category_search">
+            <form class="tours_category_search_flex">
+                <div class="main_searcher_subgroup main_searcher_input_box">
+                    <label>Kam jedete:</label>
+                    <input class="tours_category_search_text" type="text" size="15" placeholder="Region nebo hotel"/>
+                </div>
+                <div class="main_searcher_subgroup main_searcher_input_box">
+                    <label>Příjezd:</label>
+                    <input class="main_searcher_input_date" type="date" size="10">
+                </div>
+                <div class="main_searcher_subgroup main_searcher_input_box">
+                    <label>Odjezd:</label>
+                    <input class="main_searcher_input_date" type="date" size="10">
+                </div>
+                <div class="main_searcher_subgroup main_searcher_input_box">
+                    <label>Počet osob:</label>
+                    <input class="tours_category_search_number" type="number" min="0" max="10" value="0" size="15">
+                </div>
+                <div class="main_searcher_subgroup main_searcher_input_box">
+                    <label>Pokoje:</label>
+                    <input class="tours_category_search_number" type="number" min="0" max="10" value="0" size="15">
+                </div>
+                <div class="main_searcher_subgroup main_searcher_input_box input_checkbox">
+                    <label>Děti</label>
+                    <input class="main_searcher_input_checkbox" type="checkbox">
+                </div>
+                <button class="main_searcher_button" type="submit">HLEDAT</button>
+            </form>
+        </div>
     </nav>
     <div class="wave_divider2">
         <svg class="wave_svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -30,6 +58,107 @@
         </svg>
     </div>
     <div class="body_layout">
-        tours
+        <div class="tours_list">
+            <section class="tour_item">
+                <div class="tour_column1">
+                    <img class="picture-product" src="~/resources/images/placeholder.jpg" alt="image">
+                </div>
+                <div class="tour_column2">
+                    <h1 class="item_column2_h1">Nazev Zajezdu</h1>
+                    <p class="item_column2_text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam arcu diam, dapibus at convallis
+                        vel, fringilla eget est. Pellentesque id tristique mi, at ultricies sapien. Vivamus in
+                        ultrices ipsum, eget sagittis dui. Pellentesque vitae justo vitae neque molestie aliquam.
+                        Donec in porta purus, a vulputate neque. Nunc tristique vulputate arcu in maximus.
+                        Suspendisse pellentesque justo in mollis luctus.
+                    </p>
+                    <div class="tour_column2_flex">
+                        <p>Rating 5/5</p>
+                        <a asp-action="DetailTours" asp-controller="Home">
+                            <b>PODROBNOSTI</b>
+                        </a>
+                    </div>
+                </div>
+                <div class="tour_column3">
+                    <p>sloupeček 3</p>
+                    <button class="logform_action_button" type="submit">REZERVOVAT</button>
+                </div>
+            </section>
+            <section class="tour_item">
+                <div class="tour_column1">
+                    <img class="picture-product" src="~/resources/images/placeholder.jpg" alt="image">
+                </div>
+                <div class="tour_column2">
+                    <h1 class="item_column2_h1">Nazev Zajezdu</h1>
+                    <p class="item_column2_text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam arcu diam, dapibus at convallis
+                        vel, fringilla eget est. Pellentesque id tristique mi, at ultricies sapien. Vivamus in
+                        ultrices ipsum, eget sagittis dui. Pellentesque vitae justo vitae neque molestie aliquam.
+                        Donec in porta purus, a vulputate neque. Nunc tristique vulputate arcu in maximus.
+                        Suspendisse pellentesque justo in mollis luctus.
+                    </p>
+                    <div class="tour_column2_flex">
+                        <p>Rating 5/5</p>
+                        <a asp-action="DetailTours" asp-controller="Home">
+                            <b>PODROBNOSTI</b>
+                        </a>
+                    </div>
+                </div>
+                <div class="tour_column3">
+                    <p>sloupeček 3</p>
+                    <button class="logform_action_button" type="submit">REZERVOVAT</button>
+                </div>
+            </section>
+            <section class="tour_item">
+                <div class="tour_column1">
+                    <img class="picture-product" src="~/resources/images/placeholder.jpg" alt="image">
+                </div>
+                <div class="tour_column2">
+                    <h1 class="item_column2_h1">Nazev Zajezdu</h1>
+                    <p class="item_column2_text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam arcu diam, dapibus at convallis
+                        vel, fringilla eget est. Pellentesque id tristique mi, at ultricies sapien. Vivamus in
+                        ultrices ipsum, eget sagittis dui. Pellentesque vitae justo vitae neque molestie aliquam.
+                        Donec in porta purus, a vulputate neque. Nunc tristique vulputate arcu in maximus.
+                        Suspendisse pellentesque justo in mollis luctus.
+                    </p>
+                    <div class="tour_column2_flex">
+                        <p>Rating 5/5</p>
+                        <a asp-action="DetailTours" asp-controller="Home">
+                            <b>PODROBNOSTI</b>
+                        </a>
+                    </div>
+                </div>
+                <div class="tour_column3">
+                    <p>sloupeček 3</p>
+                    <button class="logform_action_button" type="submit">REZERVOVAT</button>
+                </div>
+            </section>
+            <section class="tour_item">
+                <div class="tour_column1">
+                    <img class="picture-product" src="~/resources/images/placeholder.jpg" alt="image">
+                </div>
+                <div class="tour_column2">
+                    <h1 class="item_column2_h1">Nazev Zajezdu</h1>
+                    <p class="item_column2_text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam arcu diam, dapibus at convallis
+                        vel, fringilla eget est. Pellentesque id tristique mi, at ultricies sapien. Vivamus in
+                        ultrices ipsum, eget sagittis dui. Pellentesque vitae justo vitae neque molestie aliquam.
+                        Donec in porta purus, a vulputate neque. Nunc tristique vulputate arcu in maximus.
+                        Suspendisse pellentesque justo in mollis luctus.
+                    </p>
+                    <div class="tour_column2_flex">
+                        <p>Rating 5/5</p>
+                        <a asp-action="DetailTours" asp-controller="Home">
+                            <b>PODROBNOSTI</b>
+                        </a>
+                    </div>
+                </div>
+                <div class="tour_column3">
+                    <p>sloupeček 3</p>
+                    <button class="logform_action_button" type="submit">REZERVOVAT</button>
+                </div>
+            </section>
+        </div>
     </div>
 </main>

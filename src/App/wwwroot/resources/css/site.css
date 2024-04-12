@@ -348,7 +348,7 @@ header > a{
   padding-bottom: 100px;
   align-items: center;
 }
-.main_searcher form{
+.main_searcher_form{
   display: flex;
   flex-direction: column;
   background-color: var(--color3);
@@ -357,6 +357,19 @@ header > a{
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.22);
 }
 .main_searcher_group{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+.main_searcher_group2{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.main_searcher_subgroup{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -368,52 +381,43 @@ header > a{
   padding: 10px;
   margin: 10px;
 }
+
 .main_searcher label {
-  padding-left: 5px;
+  padding-left: 10px;
   padding-right: 5px;
 }
-.main_searcher_input{
+.main_searcher_input_text{
   background-color: var(--color4);
   border: none;
   padding: 10px;
   outline: none;
 }
+.main_searcher_input_date{
+  background-color: var(--color4);
+  border: none;
+  outline: none;
+  padding: 10px 50px;
+}
+.main_searcher_input_range{
+  background-color: var(--color4);
+  border: none;
+  outline: none;
+  padding: 10px 25px;
+}
+.main_searcher_input_checkbox{
+  max-width: 75px;
+  background-color: var(--color4);
+  border: none;
+  padding: 10px;
+  outline: none;
+}
+.input_checkbox{
+  padding: 15px;
+}
 .magnifier_icon{
   margin-left: 80px;
 }
-.arrow_icon{
-  align-self: center;
-  padding-right:10px
-}
-.main_searcher_subgroup{
-  display: none;
-  position: absolute;
-  background-color: var(--color4);
-  padding: 30px 25px 30px 45px;
-}
-.main_searcher_subgroup ul{list-style: none;}
-.main_searcher_subgroup_itembox span{
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  line-height: 26px;
-  text-align: center;
-  border: 5px solid var(--color2);
-  color: var(--color2);
-  margin: 5px;
-  border-radius: 50%;
-  cursor: pointer;
-  user-select: none;
-  transition: all 0.4s ease;
-}
-.main_searcher_subgroup input{
-  text-align: center;
-  width:55px;
-  border: none;
-  background-color: var(--color4);
-  color: var(--color2);
-}
-.main_searcher button{
+.main_searcher_button{
   background-color: var(--color1);
   color: var(--textcolor2);
   padding: 15px 50px;
@@ -423,10 +427,59 @@ header > a{
   font-size: medium;
   font-weight: bold;
 }
-.main_searcher button:hover{
+.main_searcher_button:hover{
   background-color: var(--color2);
   cursor: pointer;
 }
+/*tours searchbar*/
+.tours_category_search{
+  background-color: var(--color3);
+  margin: 75px 50px 0 50px;
+  padding: 10px;
+  border-radius: 20px;
+}
+.tours_category_search_flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tours_category_search_flex_div{
+  background-color: var(--color4);
+  color: var(--color2);
+  padding: 10px;
+  margin: 10px;
+}
+.tours_category_search_container{
+  margin: 10px;
+}
+.tours_category_search_text{
+  background-color: var(--color4);
+  border: none;
+  padding: 10px;
+  outline: none;
+}
+.tours_category_search_number{
+  background-color: var(--color4);
+  border: none;
+  outline: none;
+  padding: 10px 25px;
+}
+.tours_category_search_checkbox{
+}
+
+
+/*tours-list*/
+.tours_list{
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
 
 /*destinations*/
 .destination_h1{

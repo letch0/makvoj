@@ -22,61 +22,41 @@
         </div>
         <h1>KAM CHCETE VYRAZIT?</h1>
         <div class="main_searcher_flex">
-            <form>
+            <form class="main_searcher_form">
                 <div class="main_searcher_group main_searcher_input_box">
                     <label>Kam jedete:</label>
-                    <input class="main_searcher_input" type="text" size="50" placeholder="Region, město nebo hotel" required="required"/>
+                    <input class="main_searcher_input_text" type="text" size="50" placeholder="Region nebo hotel" required="required"/>
                     <img class="magnifier_icon" src="~/resources/images/magnifier_logo_color2.png" alt="lupa">
                 </div>
                 <div class="main_searcher_group">
-                    <div class="main_searcher_group main_searcher_input_box">
+                    <div class="main_searcher_subgroup main_searcher_input_box">
                         <label>Příjezd:</label>
-                        <input class="main_searcher_input" type="text" size="25" placeholder="mm/dd/rrrr">
+                        <input class="main_searcher_input_date" type="date">
                     </div>
-                    <div class="main_searcher_group main_searcher_input_box">
+                    <div class="main_searcher_subgroup main_searcher_input_box">
                         <label>Odjezd:</label>
-                        <input class="main_searcher_input" type="text" size="25" placeholder="mm/dd/rrrr">
+                        <input class="main_searcher_input_date" type="date">
                     </div>
                 </div>
                 <div class="main_searcher_group">
-                    <div class="main_searcher_group main_searcher_input_box ">
+                    <div class="main_searcher_subgroup main_searcher_input_box">
                         <label>Počet osob:</label>
-                        <input class="main_searcher_input" type="text" size="30" value="Dospělí 1, Děti 0, Pokoje 1" disabled="disabled">
-                        <img class="arrow_icon" src="~/resources/images/arrow_down_color2.png" alt="arrow" width="30">
-                        <nav class="main_searcher_subgroup">
-                            <ul>
-                                <li>
-                                    <span class="main_searcher_subgroup_room">Pokoj 1</span>
-                                    <ul>
-                                        <li>
-                                            <span class="main_searcher_subgroup_item">Dospělí</span>
-                                            <div class="main_searcher_subgroup_itembox">
-                                                <span>-</span>
-                                                <input type="number" min="0" value="1"/>
-                                                <span>+</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="main_searcher_subgroup_item">Děti</span>
-                                            <div class="main_searcher_subgroup_itembox">
-                                                <span>-</span>
-                                                <input type="number" min="0" value="0"/>
-                                                <span>+</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <div style="padding-top: 22px; border-top: 1px solid red;">
-                                <a style="transition: all 0.4s ease; text-decoration: underline;">Přidat pokoj</a>
-                                <a style="transition: all 0.4s ease; text-decoration: underline;">Odebrat pokoj</a>
-                            </div>
-                        </nav>
+                            <input class="main_searcher_input_range" type="range" min="0" max="10" value="0" step="1">
                     </div>
-                    <button type="submit">HLEDAT</button>
+                    <div class="main_searcher_subgroup main_searcher_input_box">
+                        <label>Pokoje:</label>
+                            <input class="main_searcher_input_range" type="range" min="0" max="10" value="0" step="1">
+
+                    </div>
+                </div>        
+                <div class="main_searcher_group2">
+                    <div class="main_searcher_subgroup main_searcher_input_box input_checkbox">
+                        <label>Děti</label>
+                        <input class="main_searcher_input_checkbox" type="checkbox">
+                    </div>
+                    <button class="main_searcher_button" type="submit">HLEDAT</button>
                 </div>
             </form>
-
         </div>
 
     </nav>
@@ -89,6 +69,7 @@
     </div>
 
     <div class="body_layout">
+        <div>
         <h2 class="section_h2">NÁŠ VÝBĚR</h2>
         <div class="our_pick_container">
             <section class="tour_item">
@@ -166,6 +147,7 @@
                     <button class="logform_action_button" type="submit">REZERVOVAT</button>
                 </div>
             </section>
+            </div>
         </div>
     </div>
     <!--
