@@ -537,7 +537,6 @@ header > a{
 .destination_hotels_sidenav li{
   margin: 10px;
   padding: 10px;
-
   text-align: center;
 
 }
@@ -552,26 +551,21 @@ header > a{
  background-color: var(--color2);
 }
 
-.dh_sidenav_content
-.dh_sidenav_button
-#dh_sidenav_content_highlight
-
-
-/*product showcase*/
+/*Tour showcase*/
 .section_h2{
   text-align: center;
   color: var(--color2);
   font-size: 100px;
   border-bottom: solid var(--color1);
 }
-.item_container{
+.our_pick_container{
   display:flex;
   justify-content: center;
   align-items:stretch;
   flex-direction: column;
   gap: 50px;
 }
-.item_product {
+.tour_item {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -581,39 +575,39 @@ header > a{
   padding: 10px;
   background: linear-gradient(to bottom, var(--color2), var(--color3));
 }
-.item_column1,.item_column2,.item_column3{
+.tour_column1,.tour_column2,.tour_column3{
   padding: 10px;
 }
-.item_column1{
+.tour_column1{
   max-width: 25%;
 }
-.item_column1 img {
+.tour_column1 img {
   max-width:100%;
   border-radius: 10px;
   border:solid var(--color4)
 }
-.item_column2{
+.tour_column2{
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
   flex-direction: column;
   max-width: 50%;
 }
-.item_column2_nadpis{
+.tour_column2_h1{
   border-bottom: dotted var(--color4);
 }
-.item_column2_text{
+.tour_column2_text{
   background-color: var(--color4);
   padding: 20px;
   border-radius: 5px;
 }
-.item_column2_flex{
+.tour_column2_flex{
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
 }
-.item_column2 a{
+.tour_column2 a{
   background-color: var(--color2);
   color: var(--textcolor2);
   border: none;
@@ -622,18 +616,18 @@ header > a{
   margin: 10px;
   align-self: flex-end;
 }
-.item_column2 a:hover{
+.tour_column2 a:hover{
   background-color: var(--color1);
 }
 
-.item_column3{
+.tour_column3{
   border-left: solid var(--color1);
   max-width: 25%;
 }
 
 
-/*closeup-product detail*/
-.closeup_product_container{
+/*DetailTour*/
+.detail_tour_container{
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
@@ -646,12 +640,12 @@ header > a{
   0px 40px 25px -10px rgba(234,190,108,1);
   gap: 15px;*/
 }
-.closeup_product_image{
+.detail_tour_image{
   max-height: 100%;
   max-width: 40%;
   border-radius: 10px;
 }
-.closeup_product_description{
+.detail_tour_description{
   max-width: 60%;
   display: flex;
   justify-content: flex-start;
