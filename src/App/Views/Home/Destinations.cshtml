@@ -5,72 +5,16 @@
     <div class="body_layout">
         <h1 class="destination_h1">DESTINACE</h1>
         <div class="destination_flex">
-            <div class="destination_container">
-                <a asp-controller="Home" asp-action="DestinationHotels">
-                    <img class="destination" src="~/resources/images/placeholder.jpg" alt="image">
-                    <div class="destination_overlay"><p>CAPYBARA</p></div>
-                </a>
-            </div>
-            <div class="destination_container">
-                <a asp-controller="Home" asp-action="DestinationHotels">
-                    <img class="destination" src="~/resources/images/placeholder.jpg" alt="image">
-                    <div class="destination_overlay"><p>CAPYBARA</p></div>
-                </a>
-            </div>
-            <div class="destination_container">
-                <a asp-controller="Home" asp-action="DestinationHotels">
-                    <img class="destination" src="~/resources/images/placeholder.jpg" alt="image">
-                    <div class="destination_overlay"><p>CAPYBARA</p></div>
-                </a>
-            </div>
-            <div class="destination_container">
-                <a asp-controller="Home" asp-action="DestinationHotels">
-                    <img class="destination" src="~/resources/images/placeholder.jpg" alt="image">
-                    <div class="destination_overlay"><p>CAPYBARA</p></div>
-                </a>
-            </div>
-            <div class="destination_container">
-                <a asp-controller="Home" asp-action="DestinationHotels">
-                    <img class="destination" src="~/resources/images/placeholder.jpg" alt="image">
-                    <div class="destination_overlay"><p>CAPYBARA</p></div>
-                </a>
-            </div>
-            <div class="destination_container">
-                <a asp-controller="Home" asp-action="DestinationHotels">
-                    <img class="destination" src="~/resources/images/placeholder.jpg" alt="image">
-                    <div class="destination_overlay"><p>CAPYBARA</p></div>
-                </a>
-            </div>
-            <div class="destination_container">
-                <a asp-controller="Home" asp-action="DestinationHotels">
-                    <img class="destination" src="~/resources/images/placeholder.jpg" alt="image">
-                    <div class="destination_overlay"><p>CAPYBARA</p></div>
-                </a>
-            </div>
-            <div class="destination_container">
-                <a asp-controller="Home" asp-action="DestinationHotels">
-                    <img class="destination" src="~/resources/images/placeholder.jpg" alt="image">
-                    <div class="destination_overlay"><p>CAPYBARA</p></div>
-                </a>
-            </div>
-            <div class="destination_container">
-                <a asp-controller="Home" asp-action="DestinationHotels">
-                    <img class="destination" src="~/resources/images/placeholder.jpg" alt="image">
-                    <div class="destination_overlay"><p>CAPYBARA</p></div>
-                </a>
-            </div>
-            <div class="destination_container">
-                <a asp-controller="Home" asp-action="DestinationHotels">
-                    <img class="destination" src="~/resources/images/placeholder.jpg" alt="image">
-                    <div class="destination_overlay"><p>CAPYBARA</p></div>
-                </a>
-            </div>
-            <div class="destination_container">
-                <a asp-controller="Home" asp-action="DestinationHotels">
-                    <img class="destination" src="~/resources/images/placeholder.jpg" alt="image">
-                    <div class="destination_overlay"><p>CAPYBARA</p></div>
-                </a>
-            </div>
+            @for (int x = 0; x < 17; x++)
+            {
+                <div class="destination_container">
+                    <a asp-controller="Home" asp-action="DestinationHotels">
+                        <img class="destination" src="~/resources/images/placeholder.jpg" alt="image">
+                        <div class="destination_overlay">
+                            <p>CAPYBARA</p></div>
+                    </a>
+                </div>
+            }
         </div>
     </div>
 </main>
