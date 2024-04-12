@@ -1,3 +1,27 @@
+/*css navigation:
+-----------------
+  color pallette
+  elements
+  topline
+  header
+  navigation
+  body
+  loginform
+  index searchbar
+  tours searchbar
+  tours-list
+  destinations
+  destination hotels
+  tags
+  dh_sidenav
+  Tour+our pick showcase
+  DetailTour
+  wave graphics
+  mobile view
+  -------------
+*/
+
+
 /*color pallette*/
 :root {
   --color1: #240a34;
@@ -571,7 +595,7 @@ header > a{
   align-content: stretch;
   
 }
-.destination_item{
+.destination_hotels_item{
   margin: 10px;
   max-width: 280px;
   border-color: var(--color1);
@@ -579,36 +603,33 @@ header > a{
   border-width: 3px;
   background-color: var(--color4);
   border-radius: 23px;
+  padding-bottom: 30px;
 
 }
-
-.destination_item h2 {
+.destination_hotels_item_image{
+  max-width: 280px;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  border-radius: 20px 20px 0 0;
+}
+.destination_hotels_item h2 {
   color: var(--color4);
   text-align: center;
   background-color: var(--color1);
-  margin: 0px;
-  padding: 0px;
-  border-width: 0px;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
 }
 
-.destination_item p {
+.destination_hotels_item p {
   height: 100px;
   overflow: clip;
   padding: 7px;
 }
 
-.destination_item_image{
-  max-width: 280px;
-  object-fit: contain;
-  margin: 0px;
-  padding: 0px;
-  border-width: 0px;
-
-  
-  
-}
-
-.destination_item a {
+.destination_hotels_item a {
   background-color: var(--color2);
   color: var(--textcolor2);
   border: none;
@@ -618,6 +639,7 @@ header > a{
   align-self: flex-end;
 }
 
+/*tags*/
 .tag_container {
   display: flex;
   flex-wrap: wrap;
@@ -627,12 +649,11 @@ header > a{
   text-align: center;
   max-width: 100%;
   max-height: 11px;
-  margin: 2px;
-  padding: 2px;
+  margin: 5px;
+  padding: 10px;
   border-radius: 8px;
   border-style: solid;
   border-width: 1px;
-  border-color: var(--color3);
   color: grey;
   background-color: lightgrey;
 }
@@ -680,7 +701,7 @@ header > a{
  background-color: var(--color2);
 }
 
-/*Tour showcase*/
+/*Tour+our pick showcase*/
 .section_h2{
   text-align: center;
   color: var(--color2);
@@ -765,9 +786,6 @@ header > a{
   margin: 100px 5px 5px 5px;
   gap: 20px;
   border-radius: 5px;
-  /*box-shadow: 0px -40px 20px -10px rgba(36,10,52,1),
-  0px 40px 25px -10px rgba(234,190,108,1);
-  gap: 15px;*/
 }
 .detail_tour_image{
   max-height: 100%;
