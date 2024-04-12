@@ -30,11 +30,13 @@
                     <p>
                         Pokud už máš účet, klikni na tlačítko a přihlaš se!
                     </p>
-                    <button class="logform_site_button">
-                        <a asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]">
+                    <a asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]">
+                        <button class="logform_site_button">
+
                             <b>PŘIHLÁSIT</b>
-                        </a>
-                    </button>
+
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>

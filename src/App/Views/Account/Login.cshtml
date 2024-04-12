@@ -22,15 +22,17 @@
                 </div>
                 <div class="overlay-container">
                     <div class="overlay">
-                    <div class="overlay-panel overlay-right">
-                        <h1>JSI TU PRVNĚ?</h1>
-                        <p>Pokud ještě nemáš účet, klikni na tlačítko dole a registruj se!</p>
-                        <button class="logform_site_button" >
+                        <div class="overlay-panel overlay-right">
+                            <h1>JSI TU PRVNĚ?</h1>
+                            <p>Pokud ještě nemáš účet, klikni na tlačítko dole a registruj se!</p>
                             <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">
-                                <b>REGISTROVAT</b>
+
+                                <button class="logform_site_button">
+                                    <b>REGISTROVAT</b>
+
+                                </button>
                             </a>
-                        </button>
-                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
