@@ -1,3 +1,28 @@
+/*css navigation:
+-----------------
+  color pallette
+  elements
+  topline
+  header
+  navigation
+  body
+  loginform
+  index searchbar
+  tours searchbar
+  tours-list
+  destinations
+  destination hotels
+  tags
+  dh_sidenav
+  Tour+our pick showcase
+  DetailTour
+  profile
+  wave graphics
+  mobile view
+  -------------
+*/
+
+
 /*color pallette*/
 :root {
   --color1: #240a34;
@@ -40,17 +65,14 @@ a {
   margin-top: 1%;
   margin-bottom: 1%;
 }
-#logout_button,
 #login_button,
 #sign_up_button {
   text-align: right;
 }
-#logout_button:hover,
 #login_button:hover,
 #sign_up_button:hover {
   color: var(--color2);
 }
-#logout_button,
 #sign_up_button {
   margin: 1% 5%;
   padding: 1%;
@@ -571,7 +593,7 @@ header > a{
   align-content: stretch;
   
 }
-.destination_item{
+.destination_hotels_item{
   margin: 10px;
   max-width: 280px;
   border-color: var(--color1);
@@ -579,36 +601,33 @@ header > a{
   border-width: 3px;
   background-color: var(--color4);
   border-radius: 23px;
+  padding-bottom: 30px;
 
 }
-
-.destination_item h2 {
+.destination_hotels_item_image{
+  max-width: 280px;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  border-radius: 20px 20px 0 0;
+}
+.destination_hotels_item h2 {
   color: var(--color4);
   text-align: center;
   background-color: var(--color1);
-  margin: 0px;
-  padding: 0px;
-  border-width: 0px;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
 }
 
-.destination_item p {
+.destination_hotels_item p {
   height: 100px;
   overflow: clip;
   padding: 7px;
 }
 
-.destination_item_image{
-  max-width: 280px;
-  object-fit: contain;
-  margin: 0px;
-  padding: 0px;
-  border-width: 0px;
-
-  
-  
-}
-
-.destination_item a {
+.destination_hotels_item a {
   background-color: var(--color2);
   color: var(--textcolor2);
   border: none;
@@ -618,6 +637,7 @@ header > a{
   align-self: flex-end;
 }
 
+/*tags*/
 .tag_container {
   display: flex;
   flex-wrap: wrap;
@@ -627,12 +647,11 @@ header > a{
   text-align: center;
   max-width: 100%;
   max-height: 11px;
-  margin: 2px;
-  padding: 2px;
+  margin: 5px;
+  padding: 10px;
   border-radius: 8px;
   border-style: solid;
   border-width: 1px;
-  border-color: var(--color3);
   color: grey;
   background-color: lightgrey;
 }
@@ -680,7 +699,7 @@ header > a{
  background-color: var(--color2);
 }
 
-/*Tour showcase*/
+/*Tour+our pick showcase*/
 .section_h2{
   text-align: center;
   color: var(--color2);
@@ -765,9 +784,6 @@ header > a{
   margin: 100px 5px 5px 5px;
   gap: 20px;
   border-radius: 5px;
-  /*box-shadow: 0px -40px 20px -10px rgba(36,10,52,1),
-  0px 40px 25px -10px rgba(234,190,108,1);
-  gap: 15px;*/
 }
 .detail_tour_image{
   max-height: 100%;
@@ -785,6 +801,132 @@ header > a{
   padding: 20px;
   border-radius: 5px;
 }
+
+
+/*profile*/
+.profile_container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: row;
+  box-shadow: 0 0 18px 25px rgba(0,0,0,0.25);
+  background-color: var(--color4);
+  margin: 8%;
+  border-radius: 20px;
+}
+
+.profile_container_left{
+  background:linear-gradient(to right, var(--color2), var(--color1));
+  color: var(--textcolor2);
+  padding: 50px;
+  border-radius: 20px 0 0 20px;
+}
+
+.profile_container_right{
+  background-color: var(--color4);
+  padding: 50px;
+  align-self: center;
+  flex-grow: 1;
+  border-radius: 20px;
+}
+.profile_container_right form{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+}
+.profile_container_right label{
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+}
+.profile_container_right input{
+  border: none;
+  background-color: var(--color4);
+  text-align: right;
+  cursor: none;
+}
+.profile_container_right button{
+  border-radius: 10px;
+  border: solid 2px var(--color1);
+  background-color: var(--color2);
+  color: var(--textcolor2);
+  padding: 10px;
+  align-self: flex-end;
+}
+.profile_container_right button:hover{
+  border: solid 2px var(--color2);
+  background-color: var(--color3);
+  cursor: pointer;
+}
+
+.profile_container_hidden{
+  display: none;
+  right: 0;
+  align-self: flex-end;
+  background: linear-gradient(to bottom, var(--color3), var(--color2));
+  padding: 20px;
+  border-radius: 0 20px 20px 0;
+}
+.profile_container_hidden form{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+}
+.profile_container_hidden label{
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+}
+.profile_container_hidden input{
+  border: none;
+  background-color: var(--color4);
+  text-align: right;
+  padding: 10px;
+  border-radius: 5px;
+}
+.profile_container_hidden button{
+  border-radius: 10px;
+  border: solid 2px var(--color4);
+  background-color: var(--color1);
+  color: var(--textcolor2);
+  padding: 10px;
+  align-self: flex-end;
+  font-weight: bold;
+}
+.profile_container_hidden button:hover{
+  border: solid 2px var(--color1);
+  background-color: var(--color4);
+  color: var(--textcolor1);
+  cursor: pointer;
+}
+
+.profile_container_favourite_list{
+  border-radius: 20px; 
+  background-color: var(--color3);
+  padding: 20px;
+}
+.profile_container_favourite_list h2{
+  border-bottom: solid 2px var(--color2);
+}
+.profile_favourite_list_item_container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  padding: 50px;
+  margin: 10px;
+}
+.profile_favourite_list_item{
+  color: var(--textcolor1);
+  border: solid 5px var(--color1);
+  border-radius: 20px;
+  padding: 10px;
+}
+
 
 
 /*wave graphics*/

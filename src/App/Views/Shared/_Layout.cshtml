@@ -19,8 +19,8 @@
     <!--? finish button link to either another page or pop up-->
     @if (SignInManager.IsSignedIn(User))
     {
-        <h3>@UserManager.GetUserName(User)</h3>
-        <a id="logout_button" asp-controller="Account" asp-action="Logout" asp-route-returnurl="@ViewData["ReturnUrl"]">LOGOUT</a>
+        <a id="login_button" asp-controller="Home" asp-action="Profile">@UserManager.GetUserName(User)</a>
+        <a id="sign_up_button" asp-controller="Account" asp-action="Logout" asp-route-returnurl="@ViewData["ReturnUrl"]">LOGOUT</a>
     }
     else
     {
