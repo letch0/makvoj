@@ -2,5 +2,80 @@
     ViewData["Title"] = "Home Page";
 }
 <main>
-    profile
+    <div class="body_layout">
+        <section class="profile_container">
+            <div class="profile_container_left">
+                <h2>PROFIL</h2>
+                <h3>Vítejte:</h3>
+                <h3>USERNAME</h3>
+            </div>
+            <div class="profile_container_right">
+                <form>
+                    <div>
+                        <label for="profile_nameR">Jméno</label>
+                        <input id="profile_nameR" type="text" value="Name" readonly>
+                    </div>
+                    <div>
+                        <label for="profile_surnameR">Přijmení</label>
+                        <input id="profile_surnameR" type="text" value="Surname" readonly>
+                    </div>
+                    <div>
+                        <label for="profile_addressR">Adresa</label>
+                        <input id="profile_addressR" type="text" value="Address" readonly>
+                    </div>
+                    <div>
+                        <label for="profile_emailR">E-mail</label>
+                        <input id="profile_emailR" type="email" value="email" readonly>
+                    </div>
+                    <div>
+                        <label for="profile_phoneNumberR">Telefon</label>
+                        <input id="profile_phoneNumberR" type="tel" value="PhoneNumber" readonly>
+                    </div>
+                    <div>
+                        <label for="profile_passwordR">Heslo</label>
+                        <input id="profile_passwordR" type="password" value="Password" readonly>
+                    </div>
+                    <button>Nastavení profilu</button>
+                </form>
+            </div>
+            <div class="profile_container_hidden">
+                <h3>Nastavení profilu</h3>
+                <form>
+                    <div>
+                        <label for="profile_name">Jméno</label>
+                        <input id="profile_name" type="text" placeholder="Name">
+                    </div>
+                    <div>
+                        <label for="profile_surname">Přijmení</label>
+                        <input id="profile_surname" type="text" placeholder="Surname">
+                    </div>
+                    <div>
+                        <label for="profile_address">Adresa</label>
+                        <input id="profile_address" type="text" placeholder="Address">
+                    </div>
+                    <div>
+                        <label for="profile_email">E-mail</label>
+                        <input id="profile_email" type="email" placeholder="email">
+                    </div>
+                    <div>
+                        <label for="profile_phoneNumber">Telefon</label>
+                        <input id="profile_phoneNumber" type="tel" placeholder="PhoneNumber">
+                    </div>
+                    <div>
+                        <label for="profile_password">Heslo</label>
+                        <input id="profile_password" type="password" placeholder="Password">
+                    </div>
+                    <button>Zavřít a uložit</button>
+                </form>
+            </div>
+        </section>
+        <section class="profile_container_favourite_list">
+            <h2>Seznam oblíbených</h2>
+            <div class="profile_favourite_list_item_container">
+                <div class="profile_favourite_list_item">
+                    oblibena polozka
+                </div>
+            </div>
+        </section>
+    </div>
 </main>
