@@ -1,13 +1,14 @@
-@{
-    ViewData["Title"] = "Home Page";
-}
+@{ ViewData["Title"] = "Home Page"; }
+@using Microsoft.AspNetCore.Identity
+@using Domain.Entities
+@inject UserManager<User> UserManager
 <main>
     <div class="body_layout">
         <section class="profile_container">
             <div class="profile_container_left">
                 <h2>PROFIL</h2>
-                <h3>Vítejte:</h3>
-                <h3>USERNAME</h3>
+                <h3>Právě přihlášen jako:</h3>
+                <h3>@UserManager.GetUserName(User)</h3>
             </div>
             <div class="profile_container_right">
                 <form>
@@ -20,8 +21,24 @@
                         <input id="profile_surnameR" type="text" value="Surname" readonly>
                     </div>
                     <div>
-                        <label for="profile_addressR">Adresa</label>
-                        <input id="profile_addressR" type="text" value="Address" readonly>
+                        <label for="profile_countryR">Stát</label>
+                        <input id="profile_countryR" type="text" value="Country" readonly>
+                    </div>
+                    <div>
+                        <label for="profile_cityR">Město</label>
+                        <input id="profile_cityR" type="text" value="City" readonly>
+                    </div>
+                    <div>
+                        <label for="profile_streetR">Ulice</label>
+                        <input id="profile_streetR" type="text" value="Street" readonly>
+                    </div>
+                    <div>
+                        <label for="profile_street2R">Číslo popisné</label>
+                        <input id="profile_street2R" type="text" value="Street2" readonly>
+                    </div>
+                    <div>
+                        <label for="profile_postal_codeR">PSČ</label>
+                        <input id="profile_postal_codeR" type="text" value="Postal code" readonly>
                     </div>
                     <div>
                         <label for="profile_emailR">E-mail</label>
@@ -50,8 +67,28 @@
                         <input id="profile_surname" type="text" placeholder="Surname">
                     </div>
                     <div>
-                        <label for="profile_address">Adresa</label>
-                        <input id="profile_address" type="text" placeholder="Address">
+                        <label for="profile_username">Username</label>
+                        <input id="profile_username" type="text" placeholder="@UserManager.GetUserName(User)">
+                    </div>
+                    <div>
+                        <label for="profile_country">Stát</label>
+                        <input id="profile_country" type="text" placeholder="Country">
+                    </div>
+                    <div>
+                        <label for="profile_city">Město</label>
+                        <input id="profile_city" type="text" placeholder="City">
+                    </div>
+                    <div>
+                        <label for="profile_street">Ulice</label>
+                        <input id="profile_street" type="text" placeholder="Street">
+                    </div>
+                    <div>
+                        <label for="profile_street2">Číslo popisné</label>
+                        <input id="profile_street2" type="text" placeholder="Street2">
+                    </div>
+                    <div>
+                        <label for="profile_postal_code">PSČ</label>
+                        <input id="profile_postal_code" type="text" placeholder="Postal code">
                     </div>
                     <div>
                         <label for="profile_email">E-mail</label>

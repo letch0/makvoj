@@ -4,7 +4,7 @@
 
 <div class="body_layout">
     <h1 id="destination_hotels_h1">PŘEHLED HOTELŮ</h1>
-    <h2 id="destination_hotels_h2">DestinationA</h2>
+    <h2 id="destination_hotels_h2">CountryA</h2>
     <main class="destination_hotels_flex">
         <aside class="destination_hotels_sidenav">
             <div class="dh_sidenav_header">
@@ -13,28 +13,28 @@
             </div>
             <ul>
                 <li>
-                    <a>DestinationA</a>
+                    <a>CountryA</a>
                 </li>
                 <li>
-                    <a>DestinationB</a>
+                    <a>CountryB</a>
                 </li>
                 <li>
-                    <a>DestinationC</a>
+                    <a>CountryC</a>
                 </li>
                 <li>
-                    <a>DestinationD</a>
+                    <a>CountryD</a>
                 </li>
                 <li>
-                    <a>DestinationE</a>
+                    <a>CountryE</a>
                 </li>
                 <li>
-                    <a>DestinationF</a>
+                    <a>CountryF</a>
                 </li>
                 <li>
-                    <a>DestinationG</a>
+                    <a>CountryG</a>
                 </li>
                 <li>
-                    <a>DestinationH</a>
+                    <a>CountryH</a>
                 </li>
                 <div id="dh_sidenav_content_highlight"></div>
             </ul>
@@ -46,9 +46,18 @@
                 <section class="destination_hotels_item">
                     <img class="destination_hotels_item_image" src="~/resources/images/placeholder.jpg" alt="image">
 
-                    <h2>Název Hotelu</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <a asp-action="DetailTours" asp-controller="Home">
+                    <h2>Name</h2>
+                    <h3>City</h3>
+                    <p>Rating</p>
+                    <div class="tag_container">
+                        <p class="tag">tagggg</p>
+                        @for (var y = 0; y < 8; y++)
+                        {
+                            <p class="tag">tag</p>
+                        }
+                        <p class="tag">pšouk</p>
+                    </div>
+                    <a asp-action="DetailHotel" asp-controller="Home">
                         <b>PODROBNOSTI</b>
                     </a>
                 </section>

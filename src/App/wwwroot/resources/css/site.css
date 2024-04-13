@@ -17,6 +17,7 @@
   Tour+our pick showcase
   DetailTour
   profile
+  contact
   wave graphics
   mobile view
   -------------
@@ -68,19 +69,20 @@ a {
 #login_button,
 #sign_up_button {
   text-align: right;
+  font-size: 25px;
 }
 #login_button:hover,
 #sign_up_button:hover {
   color: var(--color2);
 }
 #sign_up_button {
-  margin: 1% 5%;
-  padding: 1%;
+  margin: 10px 50px;
+  padding: 10px;
 }
 #login_button{
-  margin-left: 1%;
-  margin-top: 1%;
-  margin-bottom: 1%;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 
@@ -90,13 +92,13 @@ header {
   justify-content: flex-start;
   align-items: center;
   background-color: var(--color3);
-  padding: 1%;
+  padding: 10px;
 }
 header > a{
-  padding-left: 2%;
+  padding-left: 40px;
 }
 #company_name {
-  font-size: 300%;
+  font-size: 75px;
   color: var(--color1);
 }
 #company_name:hover {
@@ -108,7 +110,7 @@ header > a{
 #menu {
   background: var(--color2);
   background: linear-gradient(to bottom, var(--color2), var(--color1));
-  height: 50px;
+  height: 60px;
 }
 #menu ul,
 #menu li {
@@ -130,7 +132,7 @@ header > a{
   padding: 0 14px;
   text-decoration: none;
   color: var(--textcolor2);
-  font-size: 18px;
+  font-size: 25px;
   text-transform: uppercase;
 }
 #menu a.dropdown-arrow:after {
@@ -374,7 +376,7 @@ header > a{
   display: flex;
   flex-direction: column;
   background-color: var(--color3);
-  padding: 5%;
+  padding: 40px;
   border-radius: 15px;
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.22);
 }
@@ -420,7 +422,7 @@ header > a{
   outline: none;
   padding: 10px 50px;
 }
-.main_searcher_input_range{
+.main_searcher_input_number{
   background-color: var(--color4);
   border: none;
   outline: none;
@@ -456,7 +458,7 @@ header > a{
 /*tours searchbar*/
 .tours_category_search{
   background-color: var(--color3);
-  margin: 75px 50px 0 50px;
+  margin: 75px 40px 0 50px;
   padding: 10px;
   border-radius: 20px;
 }
@@ -466,7 +468,7 @@ header > a{
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
 }
 .tours_category_search_flex_div{
   background-color: var(--color4);
@@ -491,7 +493,21 @@ header > a{
 }
 .tours_category_search_checkbox{
 }
-
+.tours_category_search_button{
+  background-color: var(--color1);
+  color: var(--textcolor2);
+  padding: 15px 50px;
+  margin-left: 20px;
+  margin-right: 10px;
+  border-radius: 15px;
+  border: none;
+  font-size: medium;
+  font-weight: bold;
+}
+.tours_category_search_button:hover{
+  background-color: var(--color2);
+  cursor: pointer;
+}
 
 /*tours-list*/
 .tours_list{
@@ -668,18 +684,20 @@ header > a{
   color: var(--textcolor2);
   user-select: none;
   padding: 10px;
-  max-width: 280px;
+  max-width: 250px;
 }
 .dh_sidenav_header{
-  margin: 5px;
+  margin: 5px 0;
   padding: 5px;
 }
 .dh_sidenav_header h2{
   text-align: right;
+  font-size: 40px;
 }
 .destination_hotels_sidenav ul{
   list-style: none;
   margin: 5px;
+  padding: 0;
 
 }
 .destination_hotels_sidenav li{
@@ -693,6 +711,7 @@ header > a{
   margin:0;
   padding: 10px 35px 10px 35px;
   border: solid 1px var(--textcolor2);
+  font-size: 20px;
 
 }
 .destination_hotels_sidenav a:hover{
@@ -811,15 +830,20 @@ header > a{
   flex-direction: row;
   box-shadow: 0 0 18px 25px rgba(0,0,0,0.25);
   background-color: var(--color4);
-  margin: 8%;
+  margin: 5%;
   border-radius: 20px;
 }
 
 .profile_container_left{
   background:linear-gradient(to right, var(--color2), var(--color1));
   color: var(--textcolor2);
-  padding: 50px;
+  padding: 75px;
   border-radius: 20px 0 0 20px;
+  text-align: center;
+}
+.profile_container_left h2{
+  margin-bottom: 100px;
+  font-size: 75px;
 }
 
 .profile_container_right{
@@ -828,21 +852,23 @@ header > a{
   align-self: center;
   flex-grow: 1;
   border-radius: 20px;
+
 }
 .profile_container_right form{
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   gap: 20px;
 }
 .profile_container_right label{
   display: inline-block;
   text-align: right;
-  width: 100px;
+  width: 110px;
 }
 .profile_container_right input{
   border: none;
+  border-bottom: solid 2px rgba(234, 190, 108,0.5);
   background-color: var(--color4);
   text-align: right;
   cursor: none;
@@ -869,17 +895,22 @@ header > a{
   padding: 20px;
   border-radius: 0 20px 20px 0;
 }
+.profile_container_hidden h3{
+  padding-left: 30px;
+  border-bottom: solid  2px var(--color2);
+}
 .profile_container_hidden form{
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
+  margin: 0 10px;
   gap: 20px;
 }
 .profile_container_hidden label{
   display: inline-block;
   text-align: right;
-  width: 100px;
+  width: 110px;
 }
 .profile_container_hidden input{
   border: none;
@@ -911,6 +942,7 @@ header > a{
 }
 .profile_container_favourite_list h2{
   border-bottom: solid 2px var(--color2);
+  padding-left: 20px;
 }
 .profile_favourite_list_item_container{
   display: flex;
@@ -927,6 +959,36 @@ header > a{
   padding: 10px;
 }
 
+
+/*contact*/
+.contact_h1{
+  margin: 50px 10px 30px 10px;
+  background: linear-gradient(to right, var(--color4), var(--color2), var(--color4));
+  text-align: center;
+  padding: 10px;
+}
+.contact_container{
+  display: flex;
+  justify-content:space-evenly;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--color1);
+}
+.contact_branch_container{
+  background: linear-gradient(to bottom, var(--color3), var(--color2));
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 15px;
+}
+.contact_branch_container hr{
+  margin: 0 10px;
+  background-color: var(--color1);
+  height: 5px;
+  border:none;
+}
 
 
 /*wave graphics*/

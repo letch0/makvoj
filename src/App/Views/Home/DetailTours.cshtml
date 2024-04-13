@@ -5,12 +5,53 @@
 }
 <div class="body_layout">
     <div class="detail_tour_container">
-        <img class="detail_tour_image" src="~/resources/images/placeholder.jpg" alt="image">
+        <section>
+            <div>
+                <img class="detail_tour_destination_image" alt="destination_image" src="~/resources/images/placeholder.jpg">
+                <div>
+                    <h2>Destination name</h2>
+                    <h3>destination Country, City, Street Street2</h3>
+                    <h3>Rating: destination rating</h3>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3>Počet pokojů: suma room id</h3>
+                    <h2>Pokoj: Room description (dvoulůžkový, třílůžkový)</h2>
+                    <h3>Počet osob: beds number</h3>
+                </div>
+                <img class="detail_tour_room_image" alt="room_image" src="~/resources/images/placeholder.jpg">
+            </div>
+        </section>
+        <section>
+            <div class="tag_container">
+                <p class="tag">tagggg</p>
+                @for (var y = 0; y < 8; y++)
+                {
+                    <p class="tag">tag</p>
+                }
+                <p class="tag">pšouk</p>
+            </div>
+            <div>
+                <p>starting date - end date</p>
+                <h3>Cena: room_per_night * (days-1)</h3>
+                <button class="logform_action_button" type="submit">REZERVOVAT</button>
+            </div>
+        </section>
         <div class="detail_tour_description">
-            <h1>Nazev Zajezdu</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam arcu diam, dapibus at convallis vel, fringilla eget est. Pellentesque id tristique mi, at ultricies sapien. Vivamus in ultrices ipsum, eget sagittis dui. Pellentesque vitae justo vitae neque molestie aliquam. Donec in porta purus, a vulputate neque. Nunc tristique vulputate arcu in maximus. Suspendisse pellentesque justo in mollis luctus.</p>
-            <p>Rating 5/5</p>
-            <button class="logform_action_button" type="submit">REZERVOVAT</button>
+            <h1>Premade Package Name</h1>
+            <section>
+                <div>
+
+                </div>
+                <div>
+
+                    <div>
+
+                    </div>
+                </div>
+            </section>
+
         </div>
     </div>
 </div>

@@ -46,7 +46,7 @@
                     <label>Děti</label>
                     <input class="main_searcher_input_checkbox" type="checkbox">
                 </div>
-                <button class="main_searcher_button" type="submit">HLEDAT</button>
+                <button class="tours_category_search_button" type="submit">HLEDAT</button>
             </form>
         </div>
     </nav>
@@ -59,22 +59,17 @@
     </div>
     <div class="body_layout">
         <div class="tours_list">
-            @for (int x = 0; x < 3; x++)
+            @for (var x = 0; x < 3; x++)
             {
                 <section class="tour_item">
                     <div class="tour_column1">
                         <img class="picture-product" src="~/resources/images/placeholder.jpg" alt="image">
                     </div>
                     <div class="tour_column2">
-                        <h1 class="item_column2_h1">Nazev Zajezdu</h1>
-                        <p class="item_column2_text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam arcu diam, dapibus at convallis
-                            vel, fringilla eget est. Pellentesque id tristique mi, at ultricies sapien. Vivamus in
-                            ultrices ipsum, eget sagittis dui. Pellentesque vitae justo vitae neque molestie aliquam.
-                            Donec in porta purus, a vulputate neque. Nunc tristique vulputate arcu in maximus.
-                            Suspendisse pellentesque justo in mollis luctus.
-                        </p>
+                        <h2 class="item_column2_h1">Premade Package Name</h2>
                         <div class="tour_column2_flex">
+                            <h3>Destination Country, D.Name</h3>
+                            <h4>Počet osob: number of beds</h4>
                             <div class="tag_container">
                                 <p class="tag">tagggg</p>
                                 @for (var y = 0; y < 8; y++)
@@ -83,20 +78,20 @@
                                 }
                                 <p class="tag">pšouk</p>
                             </div>
-                            <p>Rating 5/5</p>
                             <a asp-action="DetailTours" asp-controller="Home">
                                 <b>PODROBNOSTI</b>
                             </a>
                         </div>
                     </div>
                     <div class="tour_column3">
-                        <p>sloupeček 3</p>
+                        <p>Dostupné: from Room available</p>
+                        <p>Rating: from destination rating</p>
+                        <p>starting date - end date</p>
+                        <h3>Cena: room_per_night * (days-1)</h3>
                         <button class="logform_action_button" type="submit">REZERVOVAT</button>
                     </div>
                 </section>
             }
-
-
         </div>
     </div>
 </main>
