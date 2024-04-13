@@ -16,6 +16,7 @@
   dh_sidenav
   Tour+our pick showcase
   DetailTour
+  profile
   wave graphics
   mobile view
   -------------
@@ -64,17 +65,14 @@ a {
   margin-top: 1%;
   margin-bottom: 1%;
 }
-#logout_button,
 #login_button,
 #sign_up_button {
   text-align: right;
 }
-#logout_button:hover,
 #login_button:hover,
 #sign_up_button:hover {
   color: var(--color2);
 }
-#logout_button,
 #sign_up_button {
   margin: 1% 5%;
   padding: 1%;
@@ -803,6 +801,132 @@ header > a{
   padding: 20px;
   border-radius: 5px;
 }
+
+
+/*profile*/
+.profile_container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: row;
+  box-shadow: 0 0 18px 25px rgba(0,0,0,0.25);
+  background-color: var(--color4);
+  margin: 8%;
+  border-radius: 20px;
+}
+
+.profile_container_left{
+  background:linear-gradient(to right, var(--color2), var(--color1));
+  color: var(--textcolor2);
+  padding: 50px;
+  border-radius: 20px 0 0 20px;
+}
+
+.profile_container_right{
+  background-color: var(--color4);
+  padding: 50px;
+  align-self: center;
+  flex-grow: 1;
+  border-radius: 20px;
+}
+.profile_container_right form{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+}
+.profile_container_right label{
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+}
+.profile_container_right input{
+  border: none;
+  background-color: var(--color4);
+  text-align: right;
+  cursor: none;
+}
+.profile_container_right button{
+  border-radius: 10px;
+  border: solid 2px var(--color1);
+  background-color: var(--color2);
+  color: var(--textcolor2);
+  padding: 10px;
+  align-self: flex-end;
+}
+.profile_container_right button:hover{
+  border: solid 2px var(--color2);
+  background-color: var(--color3);
+  cursor: pointer;
+}
+
+.profile_container_hidden{
+  display: none;
+  right: 0;
+  align-self: flex-end;
+  background: linear-gradient(to bottom, var(--color3), var(--color2));
+  padding: 20px;
+  border-radius: 0 20px 20px 0;
+}
+.profile_container_hidden form{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+}
+.profile_container_hidden label{
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+}
+.profile_container_hidden input{
+  border: none;
+  background-color: var(--color4);
+  text-align: right;
+  padding: 10px;
+  border-radius: 5px;
+}
+.profile_container_hidden button{
+  border-radius: 10px;
+  border: solid 2px var(--color4);
+  background-color: var(--color1);
+  color: var(--textcolor2);
+  padding: 10px;
+  align-self: flex-end;
+  font-weight: bold;
+}
+.profile_container_hidden button:hover{
+  border: solid 2px var(--color1);
+  background-color: var(--color4);
+  color: var(--textcolor1);
+  cursor: pointer;
+}
+
+.profile_container_favourite_list{
+  border-radius: 20px; 
+  background-color: var(--color3);
+  padding: 20px;
+}
+.profile_container_favourite_list h2{
+  border-bottom: solid 2px var(--color2);
+}
+.profile_favourite_list_item_container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  padding: 50px;
+  margin: 10px;
+}
+.profile_favourite_list_item{
+  color: var(--textcolor1);
+  border: solid 5px var(--color1);
+  border-radius: 20px;
+  padding: 10px;
+}
+
 
 
 /*wave graphics*/
