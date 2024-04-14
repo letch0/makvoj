@@ -6,24 +6,25 @@
 <div class="body_layout">
     <div class="detail_tour_container">
         <section>
-            <div>
+            <div class="detail_tour_description_container">
                 <img class="detail_tour_destination_image" alt="destination_image" src="~/resources/images/placeholder.jpg">
-                <div>
+                <div class="detail_tour_info_container">
                     <h2>Destination name</h2>
                     <h3>destination Country, City, Street Street2</h3>
                     <h3>Rating: destination rating</h3>
                 </div>
             </div>
-            <div>
-                <div>
+            <div class="detail_tour_description_container">
+                <div class="detail_tour_info_container">
                     <h3>Počet pokojů: suma room id</h3>
-                    <h2>Pokoj: Room description (dvoulůžkový, třílůžkový)</h2>
+                    <h2>Pokoj Room description (dvoulůžkový, třílůžkový)</h2>
                     <h3>Počet osob: beds number</h3>
                 </div>
                 <img class="detail_tour_room_image" alt="room_image" src="~/resources/images/placeholder.jpg">
             </div>
         </section>
         <section>
+            <h1 class="tour_detail_h1">Premade Package Name</h1>
             <div class="tag_container">
                 <p class="tag">tagggg</p>
                 @for (var y = 0; y < 8; y++)
@@ -32,26 +33,11 @@
                 }
                 <p class="tag">pšouk</p>
             </div>
-            <div>
+            <div class="tour_detail_side">
                 <p>starting date - end date</p>
                 <h3>Cena: room_per_night * (days-1)</h3>
-                <button class="logform_action_button" type="submit">REZERVOVAT</button>
+                <button type="submit">REZERVOVAT</button>
             </div>
         </section>
-        <div class="detail_tour_description">
-            <h1>Premade Package Name</h1>
-            <section>
-                <div>
-
-                </div>
-                <div>
-
-                    <div>
-
-                    </div>
-                </div>
-            </section>
-
-        </div>
     </div>
 </div>

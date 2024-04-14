@@ -45,21 +45,23 @@
             {
                 <section class="destination_hotels_item">
                     <img class="destination_hotels_item_image" src="~/resources/images/placeholder.jpg" alt="image">
-
-                    <h2>Name</h2>
-                    <h3>City</h3>
-                    <p>Rating</p>
-                    <div class="tag_container">
-                        <p class="tag">tagggg</p>
-                        @for (var y = 0; y < 8; y++)
-                        {
-                            <p class="tag">tag</p>
-                        }
-                        <p class="tag">pšouk</p>
+                    <div class="destination_hotels_item_description">
+                        <h2>Destination Name</h2>
+                        <h3>City</h3>
+                        <p class="destination_hotels_item_description_rating">Rating</p>
+                        <div class="tag_container">
+                            <p class="tag">tagggg</p>
+                            @for (var y = 0; y < 8; y++)
+                            {
+                                <p class="tag">tag</p>
+                            }
+                            <p class="tag">pšouk</p>
+                        </div>
+                        <a asp-action="DetailHotel" asp-controller="Home">
+                            <b>PODROBNOSTI</b>
+                        </a>
                     </div>
-                    <a asp-action="DetailHotel" asp-controller="Home">
-                        <b>PODROBNOSTI</b>
-                    </a>
+
                 </section>
             }
 

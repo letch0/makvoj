@@ -5,43 +5,35 @@
     <div class="body_layout">
         <div class="detail_hotel_container">
             <section class="detail_hotel_information_container">
-                <img class="detail_hotel_container_img" src="~/resources/images/placeholder.jpg" alt="hotel_picture">
-                <div class="detail_hotel_container_description">
+                <img class="detail_hotel_info_container_img" src="~/resources/images/placeholder.jpg" alt="hotel_picture">
+                <div class="detail_hotel_info_container_description">
                     <h2>name</h2>
                     <h3>Country, City, Street Street2</h3>
-                    <p>Description</p>
-                    <p>rating</p>
+                    <h4>Description</h4>
+                    <h4>Hodnocení: rating</h4>
                 </div>
             </section>
             <section class="detail_hotel_rooms_container">
-                <div class="detail_hotel_room_container_info">
-                    <img class="detail_hotel_room_img" src="~/resources/images/placeholder.jpg" alt="room_picture">
-                    <p>Description (dvoulůžkový, třílůžkový, atp)</p>
-                    <p>Beds</p>
-                    <p>available Y/N</p>
-                    <p>Cost_per_night</p>
-                    <p>Description</p>
-                    <button>REZERVOVAT</button>
-                </div>
-                <div class="detail_hotel_room_container_info">
-                    <img class="detail_hotel_room_img" src="~/resources/images/placeholder.jpg" alt="room_picture">
-                    <p>Description (dvoulůžkový, třílůžkový, atp)</p>
-                    <p>Beds</p>
-                    <p>available Y/N</p>
-                    <p>Cost_per_night</p>
-                    <button>REZERVOVAT</button>
-                </div>
-                <div class="detail_hotel_room_container_info">
-                    <img class="detail_hotel_room_img" src="~/resources/images/placeholder.jpg" alt="room_picture">
-                    <p>Description (dvoulůžkový, třílůžkový, atp)</p>
-                    <p>Beds</p>
-                    <p>available Y/N</p>
-                    <p>Cost_per_night</p>
-                    <button>REZERVOVAT</button>
-                </div>
-
+                @for (var m = 0; m < 3; m++)
+                {
+                    <div class="detail_hotel_room_container_info">
+                        <img class="detail_hotel_room_img" src="~/resources/images/placeholder.jpg" alt="room_picture">
+                        <h2>Pokoj:<br>Description <br>(dvoulůžkový, třílůžkový, atp)</h2>
+                        <h3>Počet lůžek: Beds</h3>
+                        <h3>Dostupné: available Y/N</h3>
+                        <h3>Cena: Cost_per_night</h3>
+                        <div class="tag_container">
+                            <p class="tag">tagggg</p>
+                            @for (var y = 0; y < 8; y++)
+                            {
+                                <p class="tag">tag</p>
+                            }
+                            <p class="tag">pšouk</p>
+                        </div>
+                        <button>REZERVOVAT</button>
+                    </div>
+                }
             </section>
-
         </div>
     </div>
 </main>

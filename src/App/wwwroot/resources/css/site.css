@@ -1,30 +1,32 @@
-/*css navigation:
------------------
-  color pallette
-  elements
-  topline
-  header
-  navigation
-  body
-  loginform
-  index searchbar
-  tours searchbar
-  tours-list
-  destinations
-  destination hotels
-  tags
-  dh_sidenav
-  Tour+our pick showcase
-  DetailTour
-  profile
-  contact
-  wave graphics
-  mobile view
-  -------------
+/*
+css navigation:
+---------------------------------------
+  color palette           (line 
+  elements                (line 
+  topline                 (line 
+  header                  (line 
+  navigation              (line 
+  body                    (line 
+  loginform               (line 
+  index searchbar         (line 
+  tours searchbar         (line 
+  tours-list              (line 
+  destinations            (line 
+  destination hotels      (line 
+  dh_sidenav              (line 
+  detailHotel             (line 
+  tags                    (line 
+  Tour+our pick showcase  (line 
+  DetailTour              (line 
+  profile                 (line 
+  contact                 (line 
+  wave graphics           (line 
+  mobile view             (line 
+---------------------------------------
 */
 
 
-/*color pallette*/
+/*color palette*/
 :root {
   --color1: #240a34;
   --color2: #891652;
@@ -58,8 +60,9 @@ a {
   text-decoration: none;
   color: var(--textcolor1);
 }
-
-
+a:hover, button:hover{
+  cursor: pointer;
+}
 /*topline*/
 #top_line {
   text-align: right;
@@ -455,6 +458,8 @@ header > a{
   background-color: var(--color2);
   cursor: pointer;
 }
+
+
 /*tours searchbar*/
 .tours_category_search{
   background-color: var(--color3);
@@ -607,9 +612,12 @@ header > a{
   justify-content: center;
   align-items: center;
   align-content: stretch;
-  
 }
 .destination_hotels_item{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   margin: 10px;
   max-width: 280px;
   border-color: var(--color1);
@@ -617,7 +625,6 @@ header > a{
   border-width: 3px;
   background-color: var(--color4);
   border-radius: 23px;
-  padding-bottom: 30px;
 
 }
 .destination_hotels_item_image{
@@ -626,50 +633,40 @@ header > a{
   margin: 0;
   padding: 0;
   border-width: 0;
-  border-radius: 20px 20px 0 0;
+  border-radius: 18px 18px 0 0;
 }
-.destination_hotels_item h2 {
+.destination_hotels_item_description{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.destination_hotels_item_description h2{
+  background: linear-gradient(to right, var(--color1), var(--color2), var(--color1));
   color: var(--color4);
   text-align: center;
-  background-color: var(--color1);
   margin: 0;
-  padding: 0;
-  border-width: 0;
+  padding: 5px 0;
 }
-
-.destination_hotels_item p {
-  height: 100px;
-  overflow: clip;
-  padding: 7px;
-}
-
-.destination_hotels_item a {
-  background-color: var(--color2);
-  color: var(--textcolor2);
-  border: none;
-  border-radius: 15px;
-  padding: 15px;
-  margin: 10px;
-  align-self: flex-end;
-}
-
-/*tags*/
-.tag_container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.tag {
-  text-align: center;
-  max-width: 100%;
-  max-height: 11px;
-  margin: 5px;
+.destination_hotels_item_description h3{
   padding: 10px;
-  border-radius: 8px;
-  border-style: solid;
-  border-width: 1px;
-  color: grey;
-  background-color: lightgrey;
+  text-align: center;
+  margin: 0;
+  border-bottom: dot-dot-dash 2px var(--color1);
+}
+.destination_hotels_item_description_rating{
+  text-align: end;
+  padding: 0 20px;
+}
+.destination_hotels_item_description a{
+  background: linear-gradient(to right, var(--color1), var(--color2), var(--color1));
+  color: var(--color4);
+  text-align: center;
+  border-radius: 0 0 17px 17px;
+  padding: 10px 0;
+}
+.destination_hotels_item_description a:hover{
+  background: linear-gradient(to right, var(--color2), var(--color1), var(--color2));
 }
 
 
@@ -717,6 +714,119 @@ header > a{
 .destination_hotels_sidenav a:hover{
  background-color: var(--color2);
 }
+
+
+/*detailHotel*/
+.detail_hotel_container{
+  margin-top: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.detail_hotel_information_container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: row;
+  border: solid 5px var(--color3);
+  border-radius: 25px;
+}
+.detail_hotel_info_container_img{
+  max-width: 500px;
+  border-radius: 20px 0 0 20px;
+}
+.detail_hotel_info_container_description{
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: column;
+  border-left: solid 10px var(--color2);
+}
+.detail_hotel_info_container_description h2{
+  background:  linear-gradient(to right, var(--color2), var(--color3));
+  padding: 80px 10px 10px 10px;
+  margin: 0;
+  color: var(--color4);
+  border-radius: 0 20px 0 0;
+}
+.detail_hotel_info_container_description h3{
+  padding: 10px;
+  border-bottom: solid 2px var(--color2);
+}
+.detail_hotel_info_container_description h4{
+  padding: 10px;
+}
+.detail_hotel_rooms_container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
+  margin: 10px;
+}
+.detail_hotel_room_container_info{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--color4);
+  border: solid 5px var(--color3);
+  border-radius: 20px;
+  max-width: 250px;
+}
+.detail_hotel_room_img{
+  max-width: 250px;
+  border-radius: 15px 15px 0 0;
+}
+.detail_hotel_room_container_info h2{
+  background: linear-gradient(to right, var(--color3), var(--color2), var(--color3));
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  color: var(--color1);
+}
+.detail_hotel_room_container_info h3{
+  align-self: flex-start;
+  margin: 10px;
+}
+.detail_hotel_room_container_info button{
+  align-self: stretch;
+  text-align: center;
+  background: linear-gradient(to right, var(--color3), var(--color2), var(--color3));
+  padding: 10px 0;
+  border: none;
+  border-radius: 0 0 15px 15px;
+  font-weight: bolder;
+  color: var(--color1);
+}
+.detail_hotel_room_container_info button:hover{
+  background: linear-gradient(to right, var(--color2), var(--color3), var(--color2));
+}
+
+
+/*tags*/
+.tag_container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.tag {
+  text-align: center;
+  max-width: 100%;
+  max-height: 11px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  color: grey;
+  background-color: lightgrey;
+}
+
 
 /*Tour+our pick showcase*/
 .section_h2{
@@ -772,7 +882,7 @@ header > a{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
 }
 .tour_column2 a{
   background-color: var(--color2);
@@ -804,23 +914,49 @@ header > a{
   gap: 20px;
   border-radius: 5px;
 }
-.detail_tour_image{
+.detail_tour_destination_image, .detail_tour_room_image{
   max-height: 100%;
-  max-width: 40%;
+  max-width: 30%;
   border-radius: 10px;
 }
-.detail_tour_description{
-  max-width: 60%;
+.detail_tour_description_container{
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
-  flex-direction: column;
+  flex-direction: row;
   background-color: var(--color4);
   margin: 5px;
   padding: 20px;
   border-radius: 5px;
 }
-
+.detail_tour_info_container{
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  color: var(--color1);
+}
+.detail_tour_info_container h2{
+  border-bottom: solid 2px var(--color1);
+}
+.tour_detail_h1{
+  color: var(--textcolor2);
+  font-size: 30px;
+}
+.tour_detail_side button{
+  background: var(--color3);
+  border: solid 5px var(--color1);
+  color: var(--color1);
+  font-weight: bolder;
+  padding: 10px 30px;
+  border-radius: 15px;
+}
+.tour_detail_side button:hover{
+  background: var(--color1);
+  border: solid 5px var(--color3);
+  color: var(--color3);
+}
 
 /*profile*/
 .profile_container{
